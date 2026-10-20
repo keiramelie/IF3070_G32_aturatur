@@ -1,0 +1,16 @@
+dataset_id,trial,seed,algorithm,objective,initial_score,final_score,best_score,fee_score,runtime_seconds,iterations,stuck_count,stuck_episodes,stuck_frequency,stop_reason,sideways_moves,restarts,iterations_per_restart
+synthetic_10x20,1,42,Hill Climbing,eta_weighted,3001.0500000000006,5327.7,5327.7,4278.0,3.254492799984291,13,,,,local_optimum,,,
+synthetic_10x20,1,42,Simulated Annealing,eta_weighted,3001.0500000000006,5575.7,5575.7,4519.0,26.675347700016573,18417,32,11,0.34782608695652173,min_temperature,,,
+synthetic_10x20,1,42,Hill Climbing (Sideways),eta_weighted,3001.0500000000006,5404.7,5404.7,4348.0,8.06354270002339,34,,,,max_sideways,20,,
+synthetic_10x20,1,42,Hill Climbing (Stochastic),eta_weighted,3001.0500000000006,4913.7,4913.7,3975.0,4.843525000032969,18,,,,local_optimum,,,
+synthetic_10x20,1,42,Hill Climbing (Random Restart),eta_weighted,3001.0500000000006,5498.7,5498.7,4449.0,33.42518839996774,80,,,,max_restarts,,5,"[13, 14, 14, 12, 13, 14]"
+synthetic_10x20,2,43,Hill Climbing,eta_weighted,3103.85,5498.7,5498.7,4449.0,6.903723799972795,14,,,,local_optimum,,,
+synthetic_10x20,2,43,Simulated Annealing,eta_weighted,3103.85,5639.1,5639.1,4557.0,42.99916309991386,18417,38,7,0.41304347826086957,min_temperature,,,
+synthetic_10x20,2,43,Hill Climbing (Sideways),eta_weighted,3103.85,5498.7,5498.7,4449.0,15.392967300023884,35,,,,max_sideways,20,,
+synthetic_10x20,2,43,Hill Climbing (Stochastic),eta_weighted,3103.85,5327.7,5327.7,4278.0,6.6529487000079826,15,,,,local_optimum,,,
+synthetic_10x20,2,43,Hill Climbing (Random Restart),eta_weighted,3103.85,5639.1,5639.1,4557.0,28.68119409994688,69,,,,max_restarts,,5,"[14, 9, 10, 14, 9, 13]"
+synthetic_10x20,3,44,Hill Climbing,eta_weighted,3683.85,5404.7,5404.7,4348.0,3.8614337000763044,9,,,,local_optimum,,,
+synthetic_10x20,3,44,Simulated Annealing,eta_weighted,3683.85,5639.1,5639.1,4557.0,42.497286900063045,18417,45,8,0.4891304347826087,min_temperature,,,
+synthetic_10x20,3,44,Hill Climbing (Sideways),eta_weighted,3683.85,5404.7,5404.7,4348.0,13.574649899965152,29,,,,max_sideways,20,,
+synthetic_10x20,3,44,Hill Climbing (Stochastic),eta_weighted,3683.85,5210.4,5210.4,4214.0,8.313854899955913,18,,,,local_optimum,,,
+synthetic_10x20,3,44,Hill Climbing (Random Restart),eta_weighted,3683.85,5639.1,5639.1,4557.0,31.952577200019732,77,,,,max_restarts,,5,"[9, 19, 8, 15, 10, 16]"
