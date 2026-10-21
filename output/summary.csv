@@ -1,0 +1,16 @@
+dataset_id,trial,seed,algorithm,objective,initial_score,final_score,best_score,fee_score,runtime_seconds,iterations,stuck_count,stuck_episodes,stuck_frequency,stop_reason,sideways_moves,restarts,iterations_per_restart
+synthetic_10x20,1,42,Hill Climbing,fee,2476.0,4315.0,4315.0,4315.0,8.132965500000864,12,,,,local_optimum,,,
+synthetic_10x20,1,42,Simulated Annealing,fee,2476.0,4557.0,4557.0,4557.0,93.78706209990196,18417,44,3,0.4782608695652174,min_temperature,,,
+synthetic_10x20,1,42,Hill Climbing (Sideways),fee,2476.0,4315.0,4315.0,4315.0,12.654852299951017,32,,,,max_sideways,20,,
+synthetic_10x20,1,42,Hill Climbing (Stochastic),fee,2476.0,4146.0,4146.0,4146.0,6.532075600000098,17,,,,local_optimum,,,
+synthetic_10x20,1,42,Hill Climbing (Random Restart),fee,2476.0,4453.0,4453.0,4453.0,28.063500399934128,77,,,,max_restarts,,5,"[12, 14, 13, 12, 12, 14]"
+synthetic_10x20,2,43,Hill Climbing,fee,2477.0,4385.0,4385.0,4385.0,5.587878699996509,14,,,,local_optimum,,,
+synthetic_10x20,2,43,Simulated Annealing,fee,2477.0,4627.0,4627.0,4627.0,39.45935520005878,18417,44,5,0.4782608695652174,min_temperature,,,
+synthetic_10x20,2,43,Hill Climbing (Sideways),fee,2477.0,4385.0,4385.0,4385.0,13.171727000037208,34,,,,max_sideways,20,,
+synthetic_10x20,2,43,Hill Climbing (Stochastic),fee,2477.0,4146.0,4146.0,4146.0,12.53562590002548,19,,,,local_optimum,,,
+synthetic_10x20,2,43,Hill Climbing (Random Restart),fee,2477.0,4557.0,4557.0,4557.0,81.03488729998935,70,,,,max_restarts,,5,"[14, 9, 10, 14, 10, 13]"
+synthetic_10x20,3,44,Hill Climbing,fee,2933.0,4385.0,4385.0,4385.0,10.876537500065751,10,,,,local_optimum,,,
+synthetic_10x20,3,44,Simulated Annealing,fee,2933.0,4557.0,4557.0,4557.0,80.7432933000382,18417,42,2,0.45652173913043476,min_temperature,,,
+synthetic_10x20,3,44,Hill Climbing (Sideways),fee,2933.0,4385.0,4385.0,4385.0,20.525724999955855,30,,,,max_sideways,20,,
+synthetic_10x20,3,44,Hill Climbing (Stochastic),fee,2933.0,4045.0,4045.0,4045.0,8.4361730000237,14,,,,local_optimum,,,
+synthetic_10x20,3,44,Hill Climbing (Random Restart),fee,2933.0,4561.0,4561.0,4561.0,38.398520799935795,76,,,,max_restarts,,5,"[10, 18, 8, 15, 9, 16]"

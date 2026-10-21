@@ -1,0 +1,5821 @@
+[
+  {
+    "dataset_id": "synthetic_10x20",
+    "trial": 1,
+    "seed": 42,
+    "algorithm": "Hill Climbing",
+    "initial_state": {
+      "placements": {
+        "V000": null,
+        "V001": null,
+        "V002": {
+          "x": 6,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V003": null,
+        "V004": null,
+        "V005": {
+          "x": 3,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V006": {
+          "x": 4,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V007": {
+          "x": 6,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V008": {
+          "x": 4,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V009": {
+          "x": 0,
+          "y": 4,
+          "orientation": "horizontal"
+        },
+        "V010": {
+          "x": 1,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V011": null,
+        "V012": null,
+        "V013": {
+          "x": 6,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V014": null,
+        "V015": {
+          "x": 8,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V016": {
+          "x": 2,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V017": null,
+        "V018": null,
+        "V019": null,
+        "V020": null,
+        "V021": null,
+        "V022": {
+          "x": 6,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V023": null,
+        "V024": null,
+        "V025": {
+          "x": 5,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V026": {
+          "x": 1,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V027": {
+          "x": 8,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V028": {
+          "x": 1,
+          "y": 8,
+          "orientation": "vertical"
+        },
+        "V029": {
+          "x": 4,
+          "y": 3,
+          "orientation": "horizontal"
+        }
+      }
+    },
+    "final_state": {
+      "placements": {
+        "V000": {
+          "x": 6,
+          "y": 13,
+          "orientation": "horizontal"
+        },
+        "V001": null,
+        "V002": {
+          "x": 6,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V003": {
+          "x": 2,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V004": {
+          "x": 3,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V005": null,
+        "V006": {
+          "x": 4,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V007": {
+          "x": 6,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V008": {
+          "x": 4,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V009": {
+          "x": 0,
+          "y": 4,
+          "orientation": "horizontal"
+        },
+        "V010": {
+          "x": 1,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V011": {
+          "x": 8,
+          "y": 4,
+          "orientation": "horizontal"
+        },
+        "V012": {
+          "x": 7,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V013": {
+          "x": 6,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V014": {
+          "x": 0,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V015": {
+          "x": 8,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V016": {
+          "x": 2,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V017": {
+          "x": 0,
+          "y": 13,
+          "orientation": "vertical"
+        },
+        "V018": {
+          "x": 8,
+          "y": 2,
+          "orientation": "horizontal"
+        },
+        "V019": null,
+        "V020": {
+          "x": 5,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V021": {
+          "x": 3,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V022": {
+          "x": 6,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V023": {
+          "x": 0,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V024": null,
+        "V025": null,
+        "V026": {
+          "x": 1,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V027": {
+          "x": 8,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V028": {
+          "x": 1,
+          "y": 8,
+          "orientation": "vertical"
+        },
+        "V029": {
+          "x": 4,
+          "y": 3,
+          "orientation": "horizontal"
+        }
+      }
+    },
+    "best_state": {
+      "placements": {
+        "V000": {
+          "x": 6,
+          "y": 13,
+          "orientation": "horizontal"
+        },
+        "V001": null,
+        "V002": {
+          "x": 6,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V003": {
+          "x": 2,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V004": {
+          "x": 3,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V005": null,
+        "V006": {
+          "x": 4,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V007": {
+          "x": 6,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V008": {
+          "x": 4,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V009": {
+          "x": 0,
+          "y": 4,
+          "orientation": "horizontal"
+        },
+        "V010": {
+          "x": 1,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V011": {
+          "x": 8,
+          "y": 4,
+          "orientation": "horizontal"
+        },
+        "V012": {
+          "x": 7,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V013": {
+          "x": 6,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V014": {
+          "x": 0,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V015": {
+          "x": 8,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V016": {
+          "x": 2,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V017": {
+          "x": 0,
+          "y": 13,
+          "orientation": "vertical"
+        },
+        "V018": {
+          "x": 8,
+          "y": 2,
+          "orientation": "horizontal"
+        },
+        "V019": null,
+        "V020": {
+          "x": 5,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V021": {
+          "x": 3,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V022": {
+          "x": 6,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V023": {
+          "x": 0,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V024": null,
+        "V025": null,
+        "V026": {
+          "x": 1,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V027": {
+          "x": 8,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V028": {
+          "x": 1,
+          "y": 8,
+          "orientation": "vertical"
+        },
+        "V029": {
+          "x": 4,
+          "y": 3,
+          "orientation": "horizontal"
+        }
+      }
+    },
+    "initial_score": 2476.0,
+    "final_score": 4315.0,
+    "best_score": 4315.0,
+    "runtime_seconds": 8.132965500000864,
+    "iterations": 12
+  },
+  {
+    "dataset_id": "synthetic_10x20",
+    "trial": 1,
+    "seed": 42,
+    "algorithm": "Simulated Annealing",
+    "initial_state": {
+      "placements": {
+        "V000": null,
+        "V001": null,
+        "V002": {
+          "x": 6,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V003": null,
+        "V004": null,
+        "V005": {
+          "x": 3,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V006": {
+          "x": 4,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V007": {
+          "x": 6,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V008": {
+          "x": 4,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V009": {
+          "x": 0,
+          "y": 4,
+          "orientation": "horizontal"
+        },
+        "V010": {
+          "x": 1,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V011": null,
+        "V012": null,
+        "V013": {
+          "x": 6,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V014": null,
+        "V015": {
+          "x": 8,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V016": {
+          "x": 2,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V017": null,
+        "V018": null,
+        "V019": null,
+        "V020": null,
+        "V021": null,
+        "V022": {
+          "x": 6,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V023": null,
+        "V024": null,
+        "V025": {
+          "x": 5,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V026": {
+          "x": 1,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V027": {
+          "x": 8,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V028": {
+          "x": 1,
+          "y": 8,
+          "orientation": "vertical"
+        },
+        "V029": {
+          "x": 4,
+          "y": 3,
+          "orientation": "horizontal"
+        }
+      }
+    },
+    "final_state": {
+      "placements": {
+        "V000": {
+          "x": 4,
+          "y": 8,
+          "orientation": "horizontal"
+        },
+        "V001": null,
+        "V002": {
+          "x": 6,
+          "y": 15,
+          "orientation": "horizontal"
+        },
+        "V003": {
+          "x": 0,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V004": {
+          "x": 2,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V005": {
+          "x": 7,
+          "y": 11,
+          "orientation": "vertical"
+        },
+        "V006": {
+          "x": 3,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V007": {
+          "x": 0,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V008": {
+          "x": 9,
+          "y": 6,
+          "orientation": "vertical"
+        },
+        "V009": {
+          "x": 0,
+          "y": 6,
+          "orientation": "vertical"
+        },
+        "V010": {
+          "x": 5,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V011": {
+          "x": 0,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V012": {
+          "x": 0,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V013": {
+          "x": 4,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V014": {
+          "x": 2,
+          "y": 13,
+          "orientation": "horizontal"
+        },
+        "V015": {
+          "x": 2,
+          "y": 11,
+          "orientation": "vertical"
+        },
+        "V016": {
+          "x": 7,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V017": {
+          "x": 6,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V018": {
+          "x": 0,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V019": null,
+        "V020": {
+          "x": 3,
+          "y": 10,
+          "orientation": "horizontal"
+        },
+        "V021": {
+          "x": 5,
+          "y": 2,
+          "orientation": "horizontal"
+        },
+        "V022": {
+          "x": 7,
+          "y": 7,
+          "orientation": "vertical"
+        },
+        "V023": {
+          "x": 2,
+          "y": 0,
+          "orientation": "vertical"
+        },
+        "V024": {
+          "x": 0,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V025": null,
+        "V026": {
+          "x": 3,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V027": {
+          "x": 1,
+          "y": 15,
+          "orientation": "horizontal"
+        },
+        "V028": {
+          "x": 7,
+          "y": 9,
+          "orientation": "horizontal"
+        },
+        "V029": {
+          "x": 4,
+          "y": 4,
+          "orientation": "vertical"
+        }
+      }
+    },
+    "best_state": {
+      "placements": {
+        "V000": {
+          "x": 7,
+          "y": 8,
+          "orientation": "horizontal"
+        },
+        "V001": null,
+        "V002": {
+          "x": 7,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V003": {
+          "x": 5,
+          "y": 0,
+          "orientation": "vertical"
+        },
+        "V004": {
+          "x": 7,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V005": {
+          "x": 6,
+          "y": 15,
+          "orientation": "horizontal"
+        },
+        "V006": {
+          "x": 4,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V007": {
+          "x": 9,
+          "y": 6,
+          "orientation": "vertical"
+        },
+        "V008": {
+          "x": 4,
+          "y": 13,
+          "orientation": "horizontal"
+        },
+        "V009": {
+          "x": 4,
+          "y": 4,
+          "orientation": "vertical"
+        },
+        "V010": {
+          "x": 4,
+          "y": 2,
+          "orientation": "horizontal"
+        },
+        "V011": {
+          "x": 1,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V012": {
+          "x": 4,
+          "y": 8,
+          "orientation": "horizontal"
+        },
+        "V013": {
+          "x": 2,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V014": {
+          "x": 0,
+          "y": 10,
+          "orientation": "horizontal"
+        },
+        "V015": {
+          "x": 3,
+          "y": 16,
+          "orientation": "horizontal"
+        },
+        "V016": {
+          "x": 3,
+          "y": 10,
+          "orientation": "horizontal"
+        },
+        "V017": {
+          "x": 6,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V018": {
+          "x": 0,
+          "y": 13,
+          "orientation": "vertical"
+        },
+        "V019": null,
+        "V020": {
+          "x": 2,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V021": {
+          "x": 2,
+          "y": 13,
+          "orientation": "vertical"
+        },
+        "V022": {
+          "x": 0,
+          "y": 8,
+          "orientation": "vertical"
+        },
+        "V023": {
+          "x": 7,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V024": {
+          "x": 1,
+          "y": 6,
+          "orientation": "vertical"
+        },
+        "V025": null,
+        "V026": {
+          "x": 7,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V027": {
+          "x": 7,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V028": {
+          "x": 0,
+          "y": 16,
+          "orientation": "vertical"
+        },
+        "V029": {
+          "x": 0,
+          "y": 3,
+          "orientation": "horizontal"
+        }
+      }
+    },
+    "initial_score": 2476.0,
+    "final_score": 4557.0,
+    "best_score": 4557.0,
+    "runtime_seconds": 93.78706209990196,
+    "iterations": 18417
+  },
+  {
+    "dataset_id": "synthetic_10x20",
+    "trial": 1,
+    "seed": 42,
+    "algorithm": "Hill Climbing (Sideways)",
+    "initial_state": {
+      "placements": {
+        "V000": null,
+        "V001": null,
+        "V002": {
+          "x": 6,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V003": null,
+        "V004": null,
+        "V005": {
+          "x": 3,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V006": {
+          "x": 4,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V007": {
+          "x": 6,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V008": {
+          "x": 4,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V009": {
+          "x": 0,
+          "y": 4,
+          "orientation": "horizontal"
+        },
+        "V010": {
+          "x": 1,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V011": null,
+        "V012": null,
+        "V013": {
+          "x": 6,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V014": null,
+        "V015": {
+          "x": 8,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V016": {
+          "x": 2,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V017": null,
+        "V018": null,
+        "V019": null,
+        "V020": null,
+        "V021": null,
+        "V022": {
+          "x": 6,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V023": null,
+        "V024": null,
+        "V025": {
+          "x": 5,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V026": {
+          "x": 1,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V027": {
+          "x": 8,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V028": {
+          "x": 1,
+          "y": 8,
+          "orientation": "vertical"
+        },
+        "V029": {
+          "x": 4,
+          "y": 3,
+          "orientation": "horizontal"
+        }
+      }
+    },
+    "final_state": {
+      "placements": {
+        "V000": {
+          "x": 1,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V001": null,
+        "V002": {
+          "x": 6,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V003": {
+          "x": 6,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V004": {
+          "x": 3,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V005": null,
+        "V006": {
+          "x": 4,
+          "y": 17,
+          "orientation": "vertical"
+        },
+        "V007": {
+          "x": 9,
+          "y": 0,
+          "orientation": "vertical"
+        },
+        "V008": {
+          "x": 0,
+          "y": 7,
+          "orientation": "vertical"
+        },
+        "V009": {
+          "x": 0,
+          "y": 4,
+          "orientation": "horizontal"
+        },
+        "V010": {
+          "x": 3,
+          "y": 7,
+          "orientation": "vertical"
+        },
+        "V011": {
+          "x": 4,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V012": {
+          "x": 0,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V013": {
+          "x": 0,
+          "y": 13,
+          "orientation": "horizontal"
+        },
+        "V014": {
+          "x": 8,
+          "y": 3,
+          "orientation": "vertical"
+        },
+        "V015": {
+          "x": 5,
+          "y": 2,
+          "orientation": "horizontal"
+        },
+        "V016": {
+          "x": 2,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V017": {
+          "x": 6,
+          "y": 13,
+          "orientation": "horizontal"
+        },
+        "V018": {
+          "x": 6,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V019": null,
+        "V020": {
+          "x": 5,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V021": {
+          "x": 0,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V022": {
+          "x": 0,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V023": {
+          "x": 8,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V024": null,
+        "V025": null,
+        "V026": {
+          "x": 1,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V027": {
+          "x": 8,
+          "y": 9,
+          "orientation": "vertical"
+        },
+        "V028": {
+          "x": 1,
+          "y": 8,
+          "orientation": "vertical"
+        },
+        "V029": {
+          "x": 4,
+          "y": 3,
+          "orientation": "horizontal"
+        }
+      }
+    },
+    "best_state": {
+      "placements": {
+        "V000": {
+          "x": 3,
+          "y": 7,
+          "orientation": "vertical"
+        },
+        "V001": null,
+        "V002": {
+          "x": 6,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V003": {
+          "x": 2,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V004": {
+          "x": 3,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V005": null,
+        "V006": {
+          "x": 4,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V007": {
+          "x": 6,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V008": {
+          "x": 4,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V009": {
+          "x": 0,
+          "y": 4,
+          "orientation": "horizontal"
+        },
+        "V010": {
+          "x": 1,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V011": {
+          "x": 0,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V012": {
+          "x": 0,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V013": {
+          "x": 6,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V014": {
+          "x": 8,
+          "y": 3,
+          "orientation": "vertical"
+        },
+        "V015": {
+          "x": 8,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V016": {
+          "x": 2,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V017": {
+          "x": 6,
+          "y": 13,
+          "orientation": "horizontal"
+        },
+        "V018": {
+          "x": 0,
+          "y": 13,
+          "orientation": "horizontal"
+        },
+        "V019": null,
+        "V020": {
+          "x": 5,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V021": {
+          "x": 8,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V022": {
+          "x": 6,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V023": {
+          "x": 7,
+          "y": 9,
+          "orientation": "vertical"
+        },
+        "V024": null,
+        "V025": null,
+        "V026": {
+          "x": 1,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V027": {
+          "x": 8,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V028": {
+          "x": 1,
+          "y": 8,
+          "orientation": "vertical"
+        },
+        "V029": {
+          "x": 4,
+          "y": 3,
+          "orientation": "horizontal"
+        }
+      }
+    },
+    "initial_score": 2476.0,
+    "final_score": 4315.0,
+    "best_score": 4315.0,
+    "runtime_seconds": 12.654852299951017,
+    "iterations": 32
+  },
+  {
+    "dataset_id": "synthetic_10x20",
+    "trial": 1,
+    "seed": 42,
+    "algorithm": "Hill Climbing (Stochastic)",
+    "initial_state": {
+      "placements": {
+        "V000": null,
+        "V001": null,
+        "V002": {
+          "x": 6,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V003": null,
+        "V004": null,
+        "V005": {
+          "x": 3,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V006": {
+          "x": 4,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V007": {
+          "x": 6,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V008": {
+          "x": 4,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V009": {
+          "x": 0,
+          "y": 4,
+          "orientation": "horizontal"
+        },
+        "V010": {
+          "x": 1,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V011": null,
+        "V012": null,
+        "V013": {
+          "x": 6,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V014": null,
+        "V015": {
+          "x": 8,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V016": {
+          "x": 2,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V017": null,
+        "V018": null,
+        "V019": null,
+        "V020": null,
+        "V021": null,
+        "V022": {
+          "x": 6,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V023": null,
+        "V024": null,
+        "V025": {
+          "x": 5,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V026": {
+          "x": 1,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V027": {
+          "x": 8,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V028": {
+          "x": 1,
+          "y": 8,
+          "orientation": "vertical"
+        },
+        "V029": {
+          "x": 4,
+          "y": 3,
+          "orientation": "horizontal"
+        }
+      }
+    },
+    "final_state": {
+      "placements": {
+        "V000": {
+          "x": 7,
+          "y": 0,
+          "orientation": "vertical"
+        },
+        "V001": null,
+        "V002": {
+          "x": 6,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V003": {
+          "x": 9,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V004": {
+          "x": 5,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V005": null,
+        "V006": {
+          "x": 4,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V007": {
+          "x": 6,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V008": {
+          "x": 4,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V009": {
+          "x": 2,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V010": {
+          "x": 1,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V011": {
+          "x": 3,
+          "y": 6,
+          "orientation": "vertical"
+        },
+        "V012": {
+          "x": 0,
+          "y": 4,
+          "orientation": "horizontal"
+        },
+        "V013": {
+          "x": 6,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V014": {
+          "x": 6,
+          "y": 13,
+          "orientation": "horizontal"
+        },
+        "V015": {
+          "x": 8,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V016": null,
+        "V017": {
+          "x": 0,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V018": {
+          "x": 4,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V019": null,
+        "V020": {
+          "x": 3,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V021": {
+          "x": 3,
+          "y": 8,
+          "orientation": "vertical"
+        },
+        "V022": {
+          "x": 6,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V023": {
+          "x": 2,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V024": null,
+        "V025": null,
+        "V026": {
+          "x": 1,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V027": {
+          "x": 8,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V028": {
+          "x": 1,
+          "y": 8,
+          "orientation": "vertical"
+        },
+        "V029": {
+          "x": 4,
+          "y": 3,
+          "orientation": "horizontal"
+        }
+      }
+    },
+    "best_state": {
+      "placements": {
+        "V000": {
+          "x": 7,
+          "y": 0,
+          "orientation": "vertical"
+        },
+        "V001": null,
+        "V002": {
+          "x": 6,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V003": {
+          "x": 9,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V004": {
+          "x": 5,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V005": null,
+        "V006": {
+          "x": 4,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V007": {
+          "x": 6,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V008": {
+          "x": 4,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V009": {
+          "x": 2,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V010": {
+          "x": 1,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V011": {
+          "x": 3,
+          "y": 6,
+          "orientation": "vertical"
+        },
+        "V012": {
+          "x": 0,
+          "y": 4,
+          "orientation": "horizontal"
+        },
+        "V013": {
+          "x": 6,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V014": {
+          "x": 6,
+          "y": 13,
+          "orientation": "horizontal"
+        },
+        "V015": {
+          "x": 8,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V016": null,
+        "V017": {
+          "x": 0,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V018": {
+          "x": 4,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V019": null,
+        "V020": {
+          "x": 3,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V021": {
+          "x": 3,
+          "y": 8,
+          "orientation": "vertical"
+        },
+        "V022": {
+          "x": 6,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V023": {
+          "x": 2,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V024": null,
+        "V025": null,
+        "V026": {
+          "x": 1,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V027": {
+          "x": 8,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V028": {
+          "x": 1,
+          "y": 8,
+          "orientation": "vertical"
+        },
+        "V029": {
+          "x": 4,
+          "y": 3,
+          "orientation": "horizontal"
+        }
+      }
+    },
+    "initial_score": 2476.0,
+    "final_score": 4146.0,
+    "best_score": 4146.0,
+    "runtime_seconds": 6.532075600000098,
+    "iterations": 17
+  },
+  {
+    "dataset_id": "synthetic_10x20",
+    "trial": 1,
+    "seed": 42,
+    "algorithm": "Hill Climbing (Random Restart)",
+    "initial_state": {
+      "placements": {
+        "V000": null,
+        "V001": null,
+        "V002": {
+          "x": 6,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V003": null,
+        "V004": null,
+        "V005": {
+          "x": 3,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V006": {
+          "x": 4,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V007": {
+          "x": 6,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V008": {
+          "x": 4,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V009": {
+          "x": 0,
+          "y": 4,
+          "orientation": "horizontal"
+        },
+        "V010": {
+          "x": 1,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V011": null,
+        "V012": null,
+        "V013": {
+          "x": 6,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V014": null,
+        "V015": {
+          "x": 8,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V016": {
+          "x": 2,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V017": null,
+        "V018": null,
+        "V019": null,
+        "V020": null,
+        "V021": null,
+        "V022": {
+          "x": 6,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V023": null,
+        "V024": null,
+        "V025": {
+          "x": 5,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V026": {
+          "x": 1,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V027": {
+          "x": 8,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V028": {
+          "x": 1,
+          "y": 8,
+          "orientation": "vertical"
+        },
+        "V029": {
+          "x": 4,
+          "y": 3,
+          "orientation": "horizontal"
+        }
+      }
+    },
+    "final_state": {
+      "placements": {
+        "V000": {
+          "x": 1,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V001": {
+          "x": 4,
+          "y": 16,
+          "orientation": "vertical"
+        },
+        "V002": {
+          "x": 3,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V003": {
+          "x": 5,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V004": {
+          "x": 6,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V005": null,
+        "V006": null,
+        "V007": {
+          "x": 0,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V008": {
+          "x": 0,
+          "y": 2,
+          "orientation": "horizontal"
+        },
+        "V009": {
+          "x": 6,
+          "y": 11,
+          "orientation": "vertical"
+        },
+        "V010": {
+          "x": 1,
+          "y": 15,
+          "orientation": "horizontal"
+        },
+        "V011": {
+          "x": 0,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V012": {
+          "x": 0,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V013": {
+          "x": 8,
+          "y": 19,
+          "orientation": "horizontal"
+        },
+        "V014": {
+          "x": 1,
+          "y": 7,
+          "orientation": "horizontal"
+        },
+        "V015": {
+          "x": 4,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V016": {
+          "x": 7,
+          "y": 7,
+          "orientation": "vertical"
+        },
+        "V017": {
+          "x": 2,
+          "y": 13,
+          "orientation": "horizontal"
+        },
+        "V018": {
+          "x": 0,
+          "y": 9,
+          "orientation": "horizontal"
+        },
+        "V019": null,
+        "V020": {
+          "x": 6,
+          "y": 15,
+          "orientation": "horizontal"
+        },
+        "V021": {
+          "x": 0,
+          "y": 13,
+          "orientation": "horizontal"
+        },
+        "V022": {
+          "x": 7,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V023": {
+          "x": 6,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V024": {
+          "x": 6,
+          "y": 4,
+          "orientation": "horizontal"
+        },
+        "V025": null,
+        "V026": {
+          "x": 3,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V027": {
+          "x": 4,
+          "y": 7,
+          "orientation": "horizontal"
+        },
+        "V028": {
+          "x": 0,
+          "y": 3,
+          "orientation": "vertical"
+        },
+        "V029": {
+          "x": 2,
+          "y": 10,
+          "orientation": "horizontal"
+        }
+      }
+    },
+    "best_state": {
+      "placements": {
+        "V000": {
+          "x": 1,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V001": {
+          "x": 4,
+          "y": 16,
+          "orientation": "vertical"
+        },
+        "V002": {
+          "x": 3,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V003": {
+          "x": 5,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V004": {
+          "x": 6,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V005": null,
+        "V006": null,
+        "V007": {
+          "x": 0,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V008": {
+          "x": 0,
+          "y": 2,
+          "orientation": "horizontal"
+        },
+        "V009": {
+          "x": 6,
+          "y": 11,
+          "orientation": "vertical"
+        },
+        "V010": {
+          "x": 1,
+          "y": 15,
+          "orientation": "horizontal"
+        },
+        "V011": {
+          "x": 0,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V012": {
+          "x": 0,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V013": {
+          "x": 8,
+          "y": 19,
+          "orientation": "horizontal"
+        },
+        "V014": {
+          "x": 1,
+          "y": 7,
+          "orientation": "horizontal"
+        },
+        "V015": {
+          "x": 4,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V016": {
+          "x": 7,
+          "y": 7,
+          "orientation": "vertical"
+        },
+        "V017": {
+          "x": 2,
+          "y": 13,
+          "orientation": "horizontal"
+        },
+        "V018": {
+          "x": 0,
+          "y": 9,
+          "orientation": "horizontal"
+        },
+        "V019": null,
+        "V020": {
+          "x": 6,
+          "y": 15,
+          "orientation": "horizontal"
+        },
+        "V021": {
+          "x": 0,
+          "y": 13,
+          "orientation": "horizontal"
+        },
+        "V022": {
+          "x": 7,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V023": {
+          "x": 6,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V024": {
+          "x": 6,
+          "y": 4,
+          "orientation": "horizontal"
+        },
+        "V025": null,
+        "V026": {
+          "x": 3,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V027": {
+          "x": 4,
+          "y": 7,
+          "orientation": "horizontal"
+        },
+        "V028": {
+          "x": 0,
+          "y": 3,
+          "orientation": "vertical"
+        },
+        "V029": {
+          "x": 2,
+          "y": 10,
+          "orientation": "horizontal"
+        }
+      }
+    },
+    "initial_score": 2476.0,
+    "final_score": 4453.0,
+    "best_score": 4453.0,
+    "runtime_seconds": 28.063500399934128,
+    "iterations": 77
+  },
+  {
+    "dataset_id": "synthetic_10x20",
+    "trial": 2,
+    "seed": 43,
+    "algorithm": "Hill Climbing",
+    "initial_state": {
+      "placements": {
+        "V000": null,
+        "V001": null,
+        "V002": null,
+        "V003": null,
+        "V004": {
+          "x": 5,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V005": {
+          "x": 5,
+          "y": 8,
+          "orientation": "horizontal"
+        },
+        "V006": {
+          "x": 6,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V007": null,
+        "V008": null,
+        "V009": null,
+        "V010": null,
+        "V011": {
+          "x": 8,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V012": {
+          "x": 4,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V013": {
+          "x": 4,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V014": {
+          "x": 0,
+          "y": 14,
+          "orientation": "vertical"
+        },
+        "V015": null,
+        "V016": {
+          "x": 6,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V017": null,
+        "V018": {
+          "x": 2,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V019": {
+          "x": 0,
+          "y": 7,
+          "orientation": "horizontal"
+        },
+        "V020": {
+          "x": 6,
+          "y": 0,
+          "orientation": "vertical"
+        },
+        "V021": {
+          "x": 2,
+          "y": 14,
+          "orientation": "vertical"
+        },
+        "V022": null,
+        "V023": {
+          "x": 1,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V024": null,
+        "V025": null,
+        "V026": null,
+        "V027": null,
+        "V028": {
+          "x": 2,
+          "y": 11,
+          "orientation": "vertical"
+        },
+        "V029": {
+          "x": 3,
+          "y": 3,
+          "orientation": "vertical"
+        }
+      }
+    },
+    "final_state": {
+      "placements": {
+        "V000": {
+          "x": 6,
+          "y": 4,
+          "orientation": "horizontal"
+        },
+        "V001": {
+          "x": 4,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V002": {
+          "x": 5,
+          "y": 8,
+          "orientation": "horizontal"
+        },
+        "V003": {
+          "x": 2,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V004": {
+          "x": 5,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V005": null,
+        "V006": {
+          "x": 6,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V007": {
+          "x": 4,
+          "y": 2,
+          "orientation": "horizontal"
+        },
+        "V008": {
+          "x": 0,
+          "y": 2,
+          "orientation": "horizontal"
+        },
+        "V009": {
+          "x": 0,
+          "y": 7,
+          "orientation": "horizontal"
+        },
+        "V010": {
+          "x": 0,
+          "y": 3,
+          "orientation": "horizontal"
+        },
+        "V011": {
+          "x": 8,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V012": {
+          "x": 4,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V013": {
+          "x": 4,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V014": {
+          "x": 0,
+          "y": 14,
+          "orientation": "vertical"
+        },
+        "V015": {
+          "x": 0,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V016": {
+          "x": 6,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V017": {
+          "x": 0,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V018": {
+          "x": 2,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V019": null,
+        "V020": {
+          "x": 6,
+          "y": 0,
+          "orientation": "vertical"
+        },
+        "V021": {
+          "x": 2,
+          "y": 14,
+          "orientation": "vertical"
+        },
+        "V022": {
+          "x": 0,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V023": {
+          "x": 1,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V024": null,
+        "V025": null,
+        "V026": {
+          "x": 4,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V027": {
+          "x": 0,
+          "y": 5,
+          "orientation": "horizontal"
+        },
+        "V028": {
+          "x": 2,
+          "y": 11,
+          "orientation": "vertical"
+        },
+        "V029": {
+          "x": 3,
+          "y": 3,
+          "orientation": "vertical"
+        }
+      }
+    },
+    "best_state": {
+      "placements": {
+        "V000": {
+          "x": 6,
+          "y": 4,
+          "orientation": "horizontal"
+        },
+        "V001": {
+          "x": 4,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V002": {
+          "x": 5,
+          "y": 8,
+          "orientation": "horizontal"
+        },
+        "V003": {
+          "x": 2,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V004": {
+          "x": 5,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V005": null,
+        "V006": {
+          "x": 6,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V007": {
+          "x": 4,
+          "y": 2,
+          "orientation": "horizontal"
+        },
+        "V008": {
+          "x": 0,
+          "y": 2,
+          "orientation": "horizontal"
+        },
+        "V009": {
+          "x": 0,
+          "y": 7,
+          "orientation": "horizontal"
+        },
+        "V010": {
+          "x": 0,
+          "y": 3,
+          "orientation": "horizontal"
+        },
+        "V011": {
+          "x": 8,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V012": {
+          "x": 4,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V013": {
+          "x": 4,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V014": {
+          "x": 0,
+          "y": 14,
+          "orientation": "vertical"
+        },
+        "V015": {
+          "x": 0,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V016": {
+          "x": 6,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V017": {
+          "x": 0,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V018": {
+          "x": 2,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V019": null,
+        "V020": {
+          "x": 6,
+          "y": 0,
+          "orientation": "vertical"
+        },
+        "V021": {
+          "x": 2,
+          "y": 14,
+          "orientation": "vertical"
+        },
+        "V022": {
+          "x": 0,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V023": {
+          "x": 1,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V024": null,
+        "V025": null,
+        "V026": {
+          "x": 4,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V027": {
+          "x": 0,
+          "y": 5,
+          "orientation": "horizontal"
+        },
+        "V028": {
+          "x": 2,
+          "y": 11,
+          "orientation": "vertical"
+        },
+        "V029": {
+          "x": 3,
+          "y": 3,
+          "orientation": "vertical"
+        }
+      }
+    },
+    "initial_score": 2477.0,
+    "final_score": 4385.0,
+    "best_score": 4385.0,
+    "runtime_seconds": 5.587878699996509,
+    "iterations": 14
+  },
+  {
+    "dataset_id": "synthetic_10x20",
+    "trial": 2,
+    "seed": 43,
+    "algorithm": "Simulated Annealing",
+    "initial_state": {
+      "placements": {
+        "V000": null,
+        "V001": null,
+        "V002": null,
+        "V003": null,
+        "V004": {
+          "x": 5,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V005": {
+          "x": 5,
+          "y": 8,
+          "orientation": "horizontal"
+        },
+        "V006": {
+          "x": 6,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V007": null,
+        "V008": null,
+        "V009": null,
+        "V010": null,
+        "V011": {
+          "x": 8,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V012": {
+          "x": 4,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V013": {
+          "x": 4,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V014": {
+          "x": 0,
+          "y": 14,
+          "orientation": "vertical"
+        },
+        "V015": null,
+        "V016": {
+          "x": 6,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V017": null,
+        "V018": {
+          "x": 2,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V019": {
+          "x": 0,
+          "y": 7,
+          "orientation": "horizontal"
+        },
+        "V020": {
+          "x": 6,
+          "y": 0,
+          "orientation": "vertical"
+        },
+        "V021": {
+          "x": 2,
+          "y": 14,
+          "orientation": "vertical"
+        },
+        "V022": null,
+        "V023": {
+          "x": 1,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V024": null,
+        "V025": null,
+        "V026": null,
+        "V027": null,
+        "V028": {
+          "x": 2,
+          "y": 11,
+          "orientation": "vertical"
+        },
+        "V029": {
+          "x": 3,
+          "y": 3,
+          "orientation": "vertical"
+        }
+      }
+    },
+    "final_state": {
+      "placements": {
+        "V000": {
+          "x": 4,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V001": {
+          "x": 0,
+          "y": 2,
+          "orientation": "horizontal"
+        },
+        "V002": {
+          "x": 6,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V003": {
+          "x": 0,
+          "y": 8,
+          "orientation": "horizontal"
+        },
+        "V004": {
+          "x": 0,
+          "y": 12,
+          "orientation": "horizontal"
+        },
+        "V005": {
+          "x": 6,
+          "y": 8,
+          "orientation": "horizontal"
+        },
+        "V006": {
+          "x": 8,
+          "y": 6,
+          "orientation": "vertical"
+        },
+        "V007": {
+          "x": 7,
+          "y": 0,
+          "orientation": "vertical"
+        },
+        "V008": {
+          "x": 0,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V009": {
+          "x": 0,
+          "y": 15,
+          "orientation": "horizontal"
+        },
+        "V010": {
+          "x": 3,
+          "y": 4,
+          "orientation": "vertical"
+        },
+        "V011": {
+          "x": 2,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V012": {
+          "x": 5,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V013": {
+          "x": 1,
+          "y": 4,
+          "orientation": "vertical"
+        },
+        "V014": {
+          "x": 4,
+          "y": 14,
+          "orientation": "vertical"
+        },
+        "V015": {
+          "x": 2,
+          "y": 5,
+          "orientation": "vertical"
+        },
+        "V016": {
+          "x": 6,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V017": {
+          "x": 0,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V018": {
+          "x": 4,
+          "y": 9,
+          "orientation": "horizontal"
+        },
+        "V019": null,
+        "V020": {
+          "x": 7,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V021": {
+          "x": 2,
+          "y": 7,
+          "orientation": "vertical"
+        },
+        "V022": {
+          "x": 0,
+          "y": 6,
+          "orientation": "vertical"
+        },
+        "V023": {
+          "x": 8,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V024": {
+          "x": 6,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V025": null,
+        "V026": {
+          "x": 4,
+          "y": 11,
+          "orientation": "vertical"
+        },
+        "V027": {
+          "x": 4,
+          "y": 17,
+          "orientation": "vertical"
+        },
+        "V028": {
+          "x": 5,
+          "y": 5,
+          "orientation": "vertical"
+        },
+        "V029": {
+          "x": 0,
+          "y": 9,
+          "orientation": "horizontal"
+        }
+      }
+    },
+    "best_state": {
+      "placements": {
+        "V000": {
+          "x": 0,
+          "y": 3,
+          "orientation": "vertical"
+        },
+        "V001": {
+          "x": 6,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V002": {
+          "x": 6,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V003": {
+          "x": 4,
+          "y": 9,
+          "orientation": "vertical"
+        },
+        "V004": {
+          "x": 0,
+          "y": 15,
+          "orientation": "horizontal"
+        },
+        "V005": {
+          "x": 4,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V006": {
+          "x": 0,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V007": {
+          "x": 6,
+          "y": 0,
+          "orientation": "vertical"
+        },
+        "V008": {
+          "x": 7,
+          "y": 0,
+          "orientation": "vertical"
+        },
+        "V009": {
+          "x": 0,
+          "y": 9,
+          "orientation": "horizontal"
+        },
+        "V010": {
+          "x": 0,
+          "y": 0,
+          "orientation": "vertical"
+        },
+        "V011": {
+          "x": 4,
+          "y": 13,
+          "orientation": "vertical"
+        },
+        "V012": {
+          "x": 2,
+          "y": 4,
+          "orientation": "vertical"
+        },
+        "V013": {
+          "x": 7,
+          "y": 10,
+          "orientation": "horizontal"
+        },
+        "V014": {
+          "x": 3,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V015": {
+          "x": 2,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V016": {
+          "x": 6,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V017": {
+          "x": 0,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V018": {
+          "x": 2,
+          "y": 7,
+          "orientation": "horizontal"
+        },
+        "V019": null,
+        "V020": {
+          "x": 7,
+          "y": 6,
+          "orientation": "vertical"
+        },
+        "V021": {
+          "x": 4,
+          "y": 15,
+          "orientation": "horizontal"
+        },
+        "V022": {
+          "x": 5,
+          "y": 11,
+          "orientation": "vertical"
+        },
+        "V023": {
+          "x": 8,
+          "y": 0,
+          "orientation": "vertical"
+        },
+        "V024": {
+          "x": 0,
+          "y": 12,
+          "orientation": "horizontal"
+        },
+        "V025": null,
+        "V026": {
+          "x": 5,
+          "y": 8,
+          "orientation": "vertical"
+        },
+        "V027": {
+          "x": 4,
+          "y": 17,
+          "orientation": "vertical"
+        },
+        "V028": {
+          "x": 4,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V029": {
+          "x": 7,
+          "y": 2,
+          "orientation": "vertical"
+        }
+      }
+    },
+    "initial_score": 2477.0,
+    "final_score": 4627.0,
+    "best_score": 4627.0,
+    "runtime_seconds": 39.45935520005878,
+    "iterations": 18417
+  },
+  {
+    "dataset_id": "synthetic_10x20",
+    "trial": 2,
+    "seed": 43,
+    "algorithm": "Hill Climbing (Sideways)",
+    "initial_state": {
+      "placements": {
+        "V000": null,
+        "V001": null,
+        "V002": null,
+        "V003": null,
+        "V004": {
+          "x": 5,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V005": {
+          "x": 5,
+          "y": 8,
+          "orientation": "horizontal"
+        },
+        "V006": {
+          "x": 6,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V007": null,
+        "V008": null,
+        "V009": null,
+        "V010": null,
+        "V011": {
+          "x": 8,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V012": {
+          "x": 4,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V013": {
+          "x": 4,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V014": {
+          "x": 0,
+          "y": 14,
+          "orientation": "vertical"
+        },
+        "V015": null,
+        "V016": {
+          "x": 6,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V017": null,
+        "V018": {
+          "x": 2,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V019": {
+          "x": 0,
+          "y": 7,
+          "orientation": "horizontal"
+        },
+        "V020": {
+          "x": 6,
+          "y": 0,
+          "orientation": "vertical"
+        },
+        "V021": {
+          "x": 2,
+          "y": 14,
+          "orientation": "vertical"
+        },
+        "V022": null,
+        "V023": {
+          "x": 1,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V024": null,
+        "V025": null,
+        "V026": null,
+        "V027": null,
+        "V028": {
+          "x": 2,
+          "y": 11,
+          "orientation": "vertical"
+        },
+        "V029": {
+          "x": 3,
+          "y": 3,
+          "orientation": "vertical"
+        }
+      }
+    },
+    "final_state": {
+      "placements": {
+        "V000": {
+          "x": 0,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V001": {
+          "x": 6,
+          "y": 4,
+          "orientation": "horizontal"
+        },
+        "V002": {
+          "x": 5,
+          "y": 8,
+          "orientation": "horizontal"
+        },
+        "V003": {
+          "x": 0,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V004": {
+          "x": 3,
+          "y": 3,
+          "orientation": "vertical"
+        },
+        "V005": null,
+        "V006": {
+          "x": 8,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V007": {
+          "x": 9,
+          "y": 11,
+          "orientation": "vertical"
+        },
+        "V008": {
+          "x": 3,
+          "y": 16,
+          "orientation": "vertical"
+        },
+        "V009": {
+          "x": 0,
+          "y": 7,
+          "orientation": "horizontal"
+        },
+        "V010": {
+          "x": 0,
+          "y": 4,
+          "orientation": "horizontal"
+        },
+        "V011": {
+          "x": 8,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V012": {
+          "x": 4,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V013": {
+          "x": 0,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V014": {
+          "x": 0,
+          "y": 14,
+          "orientation": "vertical"
+        },
+        "V015": {
+          "x": 6,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V016": {
+          "x": 6,
+          "y": 14,
+          "orientation": "vertical"
+        },
+        "V017": {
+          "x": 4,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V018": {
+          "x": 2,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V019": null,
+        "V020": {
+          "x": 7,
+          "y": 0,
+          "orientation": "vertical"
+        },
+        "V021": {
+          "x": 0,
+          "y": 18,
+          "orientation": "vertical"
+        },
+        "V022": {
+          "x": 4,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V023": {
+          "x": 0,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V024": null,
+        "V025": null,
+        "V026": {
+          "x": 2,
+          "y": 14,
+          "orientation": "vertical"
+        },
+        "V027": {
+          "x": 4,
+          "y": 0,
+          "orientation": "vertical"
+        },
+        "V028": {
+          "x": 2,
+          "y": 11,
+          "orientation": "vertical"
+        },
+        "V029": {
+          "x": 5,
+          "y": 11,
+          "orientation": "horizontal"
+        }
+      }
+    },
+    "best_state": {
+      "placements": {
+        "V000": {
+          "x": 0,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V001": {
+          "x": 6,
+          "y": 4,
+          "orientation": "horizontal"
+        },
+        "V002": {
+          "x": 5,
+          "y": 8,
+          "orientation": "horizontal"
+        },
+        "V003": {
+          "x": 0,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V004": {
+          "x": 5,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V005": null,
+        "V006": {
+          "x": 6,
+          "y": 6,
+          "orientation": "vertical"
+        },
+        "V007": {
+          "x": 4,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V008": {
+          "x": 1,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V009": {
+          "x": 0,
+          "y": 7,
+          "orientation": "horizontal"
+        },
+        "V010": {
+          "x": 0,
+          "y": 4,
+          "orientation": "horizontal"
+        },
+        "V011": {
+          "x": 8,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V012": {
+          "x": 4,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V013": {
+          "x": 4,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V014": {
+          "x": 0,
+          "y": 14,
+          "orientation": "vertical"
+        },
+        "V015": {
+          "x": 1,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V016": {
+          "x": 6,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V017": {
+          "x": 4,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V018": {
+          "x": 2,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V019": null,
+        "V020": {
+          "x": 7,
+          "y": 0,
+          "orientation": "vertical"
+        },
+        "V021": {
+          "x": 2,
+          "y": 14,
+          "orientation": "vertical"
+        },
+        "V022": {
+          "x": 0,
+          "y": 18,
+          "orientation": "vertical"
+        },
+        "V023": {
+          "x": 1,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V024": null,
+        "V025": null,
+        "V026": {
+          "x": 8,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V027": {
+          "x": 4,
+          "y": 0,
+          "orientation": "vertical"
+        },
+        "V028": {
+          "x": 2,
+          "y": 11,
+          "orientation": "vertical"
+        },
+        "V029": {
+          "x": 3,
+          "y": 3,
+          "orientation": "vertical"
+        }
+      }
+    },
+    "initial_score": 2477.0,
+    "final_score": 4385.0,
+    "best_score": 4385.0,
+    "runtime_seconds": 13.171727000037208,
+    "iterations": 34
+  },
+  {
+    "dataset_id": "synthetic_10x20",
+    "trial": 2,
+    "seed": 43,
+    "algorithm": "Hill Climbing (Stochastic)",
+    "initial_state": {
+      "placements": {
+        "V000": null,
+        "V001": null,
+        "V002": null,
+        "V003": null,
+        "V004": {
+          "x": 5,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V005": {
+          "x": 5,
+          "y": 8,
+          "orientation": "horizontal"
+        },
+        "V006": {
+          "x": 6,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V007": null,
+        "V008": null,
+        "V009": null,
+        "V010": null,
+        "V011": {
+          "x": 8,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V012": {
+          "x": 4,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V013": {
+          "x": 4,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V014": {
+          "x": 0,
+          "y": 14,
+          "orientation": "vertical"
+        },
+        "V015": null,
+        "V016": {
+          "x": 6,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V017": null,
+        "V018": {
+          "x": 2,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V019": {
+          "x": 0,
+          "y": 7,
+          "orientation": "horizontal"
+        },
+        "V020": {
+          "x": 6,
+          "y": 0,
+          "orientation": "vertical"
+        },
+        "V021": {
+          "x": 2,
+          "y": 14,
+          "orientation": "vertical"
+        },
+        "V022": null,
+        "V023": {
+          "x": 1,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V024": null,
+        "V025": null,
+        "V026": null,
+        "V027": null,
+        "V028": {
+          "x": 2,
+          "y": 11,
+          "orientation": "vertical"
+        },
+        "V029": {
+          "x": 3,
+          "y": 3,
+          "orientation": "vertical"
+        }
+      }
+    },
+    "final_state": {
+      "placements": {
+        "V000": {
+          "x": 0,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V001": null,
+        "V002": {
+          "x": 5,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V003": {
+          "x": 1,
+          "y": 5,
+          "orientation": "horizontal"
+        },
+        "V004": {
+          "x": 5,
+          "y": 8,
+          "orientation": "horizontal"
+        },
+        "V005": null,
+        "V006": {
+          "x": 0,
+          "y": 18,
+          "orientation": "vertical"
+        },
+        "V007": {
+          "x": 3,
+          "y": 7,
+          "orientation": "horizontal"
+        },
+        "V008": {
+          "x": 0,
+          "y": 7,
+          "orientation": "horizontal"
+        },
+        "V009": {
+          "x": 6,
+          "y": 0,
+          "orientation": "vertical"
+        },
+        "V010": {
+          "x": 3,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V011": {
+          "x": 8,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V012": {
+          "x": 4,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V013": {
+          "x": 4,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V014": {
+          "x": 0,
+          "y": 14,
+          "orientation": "vertical"
+        },
+        "V015": {
+          "x": 6,
+          "y": 17,
+          "orientation": "vertical"
+        },
+        "V016": null,
+        "V017": {
+          "x": 0,
+          "y": 8,
+          "orientation": "horizontal"
+        },
+        "V018": {
+          "x": 2,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V019": null,
+        "V020": {
+          "x": 3,
+          "y": 3,
+          "orientation": "vertical"
+        },
+        "V021": {
+          "x": 2,
+          "y": 14,
+          "orientation": "vertical"
+        },
+        "V022": {
+          "x": 8,
+          "y": 4,
+          "orientation": "vertical"
+        },
+        "V023": {
+          "x": 1,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V024": null,
+        "V025": null,
+        "V026": {
+          "x": 6,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V027": {
+          "x": 0,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V028": {
+          "x": 2,
+          "y": 11,
+          "orientation": "vertical"
+        },
+        "V029": {
+          "x": 6,
+          "y": 14,
+          "orientation": "horizontal"
+        }
+      }
+    },
+    "best_state": {
+      "placements": {
+        "V000": {
+          "x": 0,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V001": null,
+        "V002": {
+          "x": 5,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V003": {
+          "x": 1,
+          "y": 5,
+          "orientation": "horizontal"
+        },
+        "V004": {
+          "x": 5,
+          "y": 8,
+          "orientation": "horizontal"
+        },
+        "V005": null,
+        "V006": {
+          "x": 0,
+          "y": 18,
+          "orientation": "vertical"
+        },
+        "V007": {
+          "x": 3,
+          "y": 7,
+          "orientation": "horizontal"
+        },
+        "V008": {
+          "x": 0,
+          "y": 7,
+          "orientation": "horizontal"
+        },
+        "V009": {
+          "x": 6,
+          "y": 0,
+          "orientation": "vertical"
+        },
+        "V010": {
+          "x": 3,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V011": {
+          "x": 8,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V012": {
+          "x": 4,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V013": {
+          "x": 4,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V014": {
+          "x": 0,
+          "y": 14,
+          "orientation": "vertical"
+        },
+        "V015": {
+          "x": 6,
+          "y": 17,
+          "orientation": "vertical"
+        },
+        "V016": null,
+        "V017": {
+          "x": 0,
+          "y": 8,
+          "orientation": "horizontal"
+        },
+        "V018": {
+          "x": 2,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V019": null,
+        "V020": {
+          "x": 3,
+          "y": 3,
+          "orientation": "vertical"
+        },
+        "V021": {
+          "x": 2,
+          "y": 14,
+          "orientation": "vertical"
+        },
+        "V022": {
+          "x": 8,
+          "y": 4,
+          "orientation": "vertical"
+        },
+        "V023": {
+          "x": 1,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V024": null,
+        "V025": null,
+        "V026": {
+          "x": 6,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V027": {
+          "x": 0,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V028": {
+          "x": 2,
+          "y": 11,
+          "orientation": "vertical"
+        },
+        "V029": {
+          "x": 6,
+          "y": 14,
+          "orientation": "horizontal"
+        }
+      }
+    },
+    "initial_score": 2477.0,
+    "final_score": 4146.0,
+    "best_score": 4146.0,
+    "runtime_seconds": 12.53562590002548,
+    "iterations": 19
+  },
+  {
+    "dataset_id": "synthetic_10x20",
+    "trial": 2,
+    "seed": 43,
+    "algorithm": "Hill Climbing (Random Restart)",
+    "initial_state": {
+      "placements": {
+        "V000": null,
+        "V001": null,
+        "V002": null,
+        "V003": null,
+        "V004": {
+          "x": 5,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V005": {
+          "x": 5,
+          "y": 8,
+          "orientation": "horizontal"
+        },
+        "V006": {
+          "x": 6,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V007": null,
+        "V008": null,
+        "V009": null,
+        "V010": null,
+        "V011": {
+          "x": 8,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V012": {
+          "x": 4,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V013": {
+          "x": 4,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V014": {
+          "x": 0,
+          "y": 14,
+          "orientation": "vertical"
+        },
+        "V015": null,
+        "V016": {
+          "x": 6,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V017": null,
+        "V018": {
+          "x": 2,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V019": {
+          "x": 0,
+          "y": 7,
+          "orientation": "horizontal"
+        },
+        "V020": {
+          "x": 6,
+          "y": 0,
+          "orientation": "vertical"
+        },
+        "V021": {
+          "x": 2,
+          "y": 14,
+          "orientation": "vertical"
+        },
+        "V022": null,
+        "V023": {
+          "x": 1,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V024": null,
+        "V025": null,
+        "V026": null,
+        "V027": null,
+        "V028": {
+          "x": 2,
+          "y": 11,
+          "orientation": "vertical"
+        },
+        "V029": {
+          "x": 3,
+          "y": 3,
+          "orientation": "vertical"
+        }
+      }
+    },
+    "final_state": {
+      "placements": {
+        "V000": {
+          "x": 3,
+          "y": 13,
+          "orientation": "horizontal"
+        },
+        "V001": null,
+        "V002": {
+          "x": 4,
+          "y": 16,
+          "orientation": "vertical"
+        },
+        "V003": {
+          "x": 0,
+          "y": 4,
+          "orientation": "horizontal"
+        },
+        "V004": {
+          "x": 0,
+          "y": 11,
+          "orientation": "vertical"
+        },
+        "V005": {
+          "x": 5,
+          "y": 8,
+          "orientation": "vertical"
+        },
+        "V006": {
+          "x": 8,
+          "y": 9,
+          "orientation": "horizontal"
+        },
+        "V007": {
+          "x": 3,
+          "y": 9,
+          "orientation": "horizontal"
+        },
+        "V008": {
+          "x": 4,
+          "y": 4,
+          "orientation": "horizontal"
+        },
+        "V009": {
+          "x": 0,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V010": {
+          "x": 6,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V011": {
+          "x": 8,
+          "y": 7,
+          "orientation": "horizontal"
+        },
+        "V012": {
+          "x": 7,
+          "y": 12,
+          "orientation": "horizontal"
+        },
+        "V013": {
+          "x": 2,
+          "y": 4,
+          "orientation": "horizontal"
+        },
+        "V014": {
+          "x": 3,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V015": {
+          "x": 8,
+          "y": 5,
+          "orientation": "vertical"
+        },
+        "V016": {
+          "x": 3,
+          "y": 5,
+          "orientation": "horizontal"
+        },
+        "V017": {
+          "x": 7,
+          "y": 14,
+          "orientation": "vertical"
+        },
+        "V018": {
+          "x": 1,
+          "y": 9,
+          "orientation": "vertical"
+        },
+        "V019": null,
+        "V020": {
+          "x": 3,
+          "y": 0,
+          "orientation": "vertical"
+        },
+        "V021": {
+          "x": 0,
+          "y": 7,
+          "orientation": "horizontal"
+        },
+        "V022": {
+          "x": 2,
+          "y": 8,
+          "orientation": "horizontal"
+        },
+        "V023": {
+          "x": 6,
+          "y": 13,
+          "orientation": "vertical"
+        },
+        "V024": {
+          "x": 0,
+          "y": 0,
+          "orientation": "vertical"
+        },
+        "V025": null,
+        "V026": {
+          "x": 1,
+          "y": 5,
+          "orientation": "horizontal"
+        },
+        "V027": {
+          "x": 1,
+          "y": 15,
+          "orientation": "horizontal"
+        },
+        "V028": {
+          "x": 7,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V029": {
+          "x": 6,
+          "y": 2,
+          "orientation": "horizontal"
+        }
+      }
+    },
+    "best_state": {
+      "placements": {
+        "V000": {
+          "x": 3,
+          "y": 13,
+          "orientation": "horizontal"
+        },
+        "V001": null,
+        "V002": {
+          "x": 4,
+          "y": 16,
+          "orientation": "vertical"
+        },
+        "V003": {
+          "x": 0,
+          "y": 4,
+          "orientation": "horizontal"
+        },
+        "V004": {
+          "x": 0,
+          "y": 11,
+          "orientation": "vertical"
+        },
+        "V005": {
+          "x": 5,
+          "y": 8,
+          "orientation": "vertical"
+        },
+        "V006": {
+          "x": 8,
+          "y": 9,
+          "orientation": "horizontal"
+        },
+        "V007": {
+          "x": 3,
+          "y": 9,
+          "orientation": "horizontal"
+        },
+        "V008": {
+          "x": 4,
+          "y": 4,
+          "orientation": "horizontal"
+        },
+        "V009": {
+          "x": 0,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V010": {
+          "x": 6,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V011": {
+          "x": 8,
+          "y": 7,
+          "orientation": "horizontal"
+        },
+        "V012": {
+          "x": 7,
+          "y": 12,
+          "orientation": "horizontal"
+        },
+        "V013": {
+          "x": 2,
+          "y": 4,
+          "orientation": "horizontal"
+        },
+        "V014": {
+          "x": 3,
+          "y": 10,
+          "orientation": "vertical"
+        },
+        "V015": {
+          "x": 8,
+          "y": 5,
+          "orientation": "vertical"
+        },
+        "V016": {
+          "x": 3,
+          "y": 5,
+          "orientation": "horizontal"
+        },
+        "V017": {
+          "x": 7,
+          "y": 14,
+          "orientation": "vertical"
+        },
+        "V018": {
+          "x": 1,
+          "y": 9,
+          "orientation": "vertical"
+        },
+        "V019": null,
+        "V020": {
+          "x": 3,
+          "y": 0,
+          "orientation": "vertical"
+        },
+        "V021": {
+          "x": 0,
+          "y": 7,
+          "orientation": "horizontal"
+        },
+        "V022": {
+          "x": 2,
+          "y": 8,
+          "orientation": "horizontal"
+        },
+        "V023": {
+          "x": 6,
+          "y": 13,
+          "orientation": "vertical"
+        },
+        "V024": {
+          "x": 0,
+          "y": 0,
+          "orientation": "vertical"
+        },
+        "V025": null,
+        "V026": {
+          "x": 1,
+          "y": 5,
+          "orientation": "horizontal"
+        },
+        "V027": {
+          "x": 1,
+          "y": 15,
+          "orientation": "horizontal"
+        },
+        "V028": {
+          "x": 7,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V029": {
+          "x": 6,
+          "y": 2,
+          "orientation": "horizontal"
+        }
+      }
+    },
+    "initial_score": 2477.0,
+    "final_score": 4557.0,
+    "best_score": 4557.0,
+    "runtime_seconds": 81.03488729998935,
+    "iterations": 70
+  },
+  {
+    "dataset_id": "synthetic_10x20",
+    "trial": 3,
+    "seed": 44,
+    "algorithm": "Hill Climbing",
+    "initial_state": {
+      "placements": {
+        "V000": {
+          "x": 0,
+          "y": 9,
+          "orientation": "vertical"
+        },
+        "V001": {
+          "x": 3,
+          "y": 6,
+          "orientation": "vertical"
+        },
+        "V002": {
+          "x": 5,
+          "y": 7,
+          "orientation": "vertical"
+        },
+        "V003": {
+          "x": 4,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V004": null,
+        "V005": {
+          "x": 0,
+          "y": 4,
+          "orientation": "vertical"
+        },
+        "V006": null,
+        "V007": {
+          "x": 5,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V008": {
+          "x": 3,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V009": null,
+        "V010": null,
+        "V011": {
+          "x": 1,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V012": null,
+        "V013": {
+          "x": 4,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V014": null,
+        "V015": null,
+        "V016": {
+          "x": 3,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V017": {
+          "x": 8,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V018": {
+          "x": 7,
+          "y": 5,
+          "orientation": "horizontal"
+        },
+        "V019": null,
+        "V020": {
+          "x": 0,
+          "y": 16,
+          "orientation": "vertical"
+        },
+        "V021": {
+          "x": 8,
+          "y": 10,
+          "orientation": "horizontal"
+        },
+        "V022": {
+          "x": 5,
+          "y": 16,
+          "orientation": "horizontal"
+        },
+        "V023": {
+          "x": 2,
+          "y": 8,
+          "orientation": "vertical"
+        },
+        "V024": {
+          "x": 7,
+          "y": 16,
+          "orientation": "vertical"
+        },
+        "V025": {
+          "x": 2,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V026": null,
+        "V027": {
+          "x": 7,
+          "y": 12,
+          "orientation": "horizontal"
+        },
+        "V028": {
+          "x": 6,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V029": null
+      }
+    },
+    "final_state": {
+      "placements": {
+        "V000": {
+          "x": 0,
+          "y": 9,
+          "orientation": "vertical"
+        },
+        "V001": {
+          "x": 3,
+          "y": 6,
+          "orientation": "vertical"
+        },
+        "V002": {
+          "x": 5,
+          "y": 7,
+          "orientation": "vertical"
+        },
+        "V003": {
+          "x": 4,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V004": {
+          "x": 0,
+          "y": 4,
+          "orientation": "vertical"
+        },
+        "V005": null,
+        "V006": {
+          "x": 2,
+          "y": 10,
+          "orientation": "horizontal"
+        },
+        "V007": {
+          "x": 5,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V008": {
+          "x": 3,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V009": {
+          "x": 2,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V010": {
+          "x": 5,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V011": {
+          "x": 1,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V012": {
+          "x": 3,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V013": {
+          "x": 4,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V014": {
+          "x": 8,
+          "y": 7,
+          "orientation": "vertical"
+        },
+        "V015": {
+          "x": 0,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V016": {
+          "x": 3,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V017": {
+          "x": 8,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V018": {
+          "x": 7,
+          "y": 5,
+          "orientation": "horizontal"
+        },
+        "V019": null,
+        "V020": {
+          "x": 0,
+          "y": 16,
+          "orientation": "vertical"
+        },
+        "V021": {
+          "x": 8,
+          "y": 10,
+          "orientation": "horizontal"
+        },
+        "V022": {
+          "x": 5,
+          "y": 16,
+          "orientation": "horizontal"
+        },
+        "V023": {
+          "x": 2,
+          "y": 8,
+          "orientation": "vertical"
+        },
+        "V024": null,
+        "V025": null,
+        "V026": {
+          "x": 6,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V027": {
+          "x": 7,
+          "y": 12,
+          "orientation": "horizontal"
+        },
+        "V028": {
+          "x": 6,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V029": {
+          "x": 7,
+          "y": 16,
+          "orientation": "vertical"
+        }
+      }
+    },
+    "best_state": {
+      "placements": {
+        "V000": {
+          "x": 0,
+          "y": 9,
+          "orientation": "vertical"
+        },
+        "V001": {
+          "x": 3,
+          "y": 6,
+          "orientation": "vertical"
+        },
+        "V002": {
+          "x": 5,
+          "y": 7,
+          "orientation": "vertical"
+        },
+        "V003": {
+          "x": 4,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V004": {
+          "x": 0,
+          "y": 4,
+          "orientation": "vertical"
+        },
+        "V005": null,
+        "V006": {
+          "x": 2,
+          "y": 10,
+          "orientation": "horizontal"
+        },
+        "V007": {
+          "x": 5,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V008": {
+          "x": 3,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V009": {
+          "x": 2,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V010": {
+          "x": 5,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V011": {
+          "x": 1,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V012": {
+          "x": 3,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V013": {
+          "x": 4,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V014": {
+          "x": 8,
+          "y": 7,
+          "orientation": "vertical"
+        },
+        "V015": {
+          "x": 0,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V016": {
+          "x": 3,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V017": {
+          "x": 8,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V018": {
+          "x": 7,
+          "y": 5,
+          "orientation": "horizontal"
+        },
+        "V019": null,
+        "V020": {
+          "x": 0,
+          "y": 16,
+          "orientation": "vertical"
+        },
+        "V021": {
+          "x": 8,
+          "y": 10,
+          "orientation": "horizontal"
+        },
+        "V022": {
+          "x": 5,
+          "y": 16,
+          "orientation": "horizontal"
+        },
+        "V023": {
+          "x": 2,
+          "y": 8,
+          "orientation": "vertical"
+        },
+        "V024": null,
+        "V025": null,
+        "V026": {
+          "x": 6,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V027": {
+          "x": 7,
+          "y": 12,
+          "orientation": "horizontal"
+        },
+        "V028": {
+          "x": 6,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V029": {
+          "x": 7,
+          "y": 16,
+          "orientation": "vertical"
+        }
+      }
+    },
+    "initial_score": 2933.0,
+    "final_score": 4385.0,
+    "best_score": 4385.0,
+    "runtime_seconds": 10.876537500065751,
+    "iterations": 10
+  },
+  {
+    "dataset_id": "synthetic_10x20",
+    "trial": 3,
+    "seed": 44,
+    "algorithm": "Simulated Annealing",
+    "initial_state": {
+      "placements": {
+        "V000": {
+          "x": 0,
+          "y": 9,
+          "orientation": "vertical"
+        },
+        "V001": {
+          "x": 3,
+          "y": 6,
+          "orientation": "vertical"
+        },
+        "V002": {
+          "x": 5,
+          "y": 7,
+          "orientation": "vertical"
+        },
+        "V003": {
+          "x": 4,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V004": null,
+        "V005": {
+          "x": 0,
+          "y": 4,
+          "orientation": "vertical"
+        },
+        "V006": null,
+        "V007": {
+          "x": 5,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V008": {
+          "x": 3,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V009": null,
+        "V010": null,
+        "V011": {
+          "x": 1,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V012": null,
+        "V013": {
+          "x": 4,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V014": null,
+        "V015": null,
+        "V016": {
+          "x": 3,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V017": {
+          "x": 8,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V018": {
+          "x": 7,
+          "y": 5,
+          "orientation": "horizontal"
+        },
+        "V019": null,
+        "V020": {
+          "x": 0,
+          "y": 16,
+          "orientation": "vertical"
+        },
+        "V021": {
+          "x": 8,
+          "y": 10,
+          "orientation": "horizontal"
+        },
+        "V022": {
+          "x": 5,
+          "y": 16,
+          "orientation": "horizontal"
+        },
+        "V023": {
+          "x": 2,
+          "y": 8,
+          "orientation": "vertical"
+        },
+        "V024": {
+          "x": 7,
+          "y": 16,
+          "orientation": "vertical"
+        },
+        "V025": {
+          "x": 2,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V026": null,
+        "V027": {
+          "x": 7,
+          "y": 12,
+          "orientation": "horizontal"
+        },
+        "V028": {
+          "x": 6,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V029": null
+      }
+    },
+    "final_state": {
+      "placements": {
+        "V000": {
+          "x": 1,
+          "y": 10,
+          "orientation": "horizontal"
+        },
+        "V001": null,
+        "V002": {
+          "x": 5,
+          "y": 14,
+          "orientation": "vertical"
+        },
+        "V003": {
+          "x": 8,
+          "y": 19,
+          "orientation": "horizontal"
+        },
+        "V004": {
+          "x": 0,
+          "y": 16,
+          "orientation": "vertical"
+        },
+        "V005": {
+          "x": 0,
+          "y": 13,
+          "orientation": "horizontal"
+        },
+        "V006": {
+          "x": 6,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V007": {
+          "x": 5,
+          "y": 10,
+          "orientation": "horizontal"
+        },
+        "V008": {
+          "x": 8,
+          "y": 16,
+          "orientation": "horizontal"
+        },
+        "V009": {
+          "x": 0,
+          "y": 6,
+          "orientation": "vertical"
+        },
+        "V010": {
+          "x": 7,
+          "y": 9,
+          "orientation": "horizontal"
+        },
+        "V011": {
+          "x": 0,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V012": {
+          "x": 6,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V013": {
+          "x": 1,
+          "y": 12,
+          "orientation": "horizontal"
+        },
+        "V014": {
+          "x": 3,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V015": {
+          "x": 4,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V016": {
+          "x": 2,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V017": {
+          "x": 8,
+          "y": 11,
+          "orientation": "vertical"
+        },
+        "V018": {
+          "x": 7,
+          "y": 7,
+          "orientation": "vertical"
+        },
+        "V019": null,
+        "V020": {
+          "x": 3,
+          "y": 5,
+          "orientation": "horizontal"
+        },
+        "V021": {
+          "x": 0,
+          "y": 2,
+          "orientation": "horizontal"
+        },
+        "V022": {
+          "x": 8,
+          "y": 2,
+          "orientation": "horizontal"
+        },
+        "V023": {
+          "x": 8,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V024": {
+          "x": 7,
+          "y": 3,
+          "orientation": "vertical"
+        },
+        "V025": null,
+        "V026": {
+          "x": 0,
+          "y": 4,
+          "orientation": "vertical"
+        },
+        "V027": {
+          "x": 5,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V028": {
+          "x": 3,
+          "y": 8,
+          "orientation": "horizontal"
+        },
+        "V029": {
+          "x": 4,
+          "y": 11,
+          "orientation": "horizontal"
+        }
+      }
+    },
+    "best_state": {
+      "placements": {
+        "V000": {
+          "x": 5,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V001": null,
+        "V002": {
+          "x": 4,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V003": {
+          "x": 0,
+          "y": 9,
+          "orientation": "vertical"
+        },
+        "V004": {
+          "x": 0,
+          "y": 16,
+          "orientation": "vertical"
+        },
+        "V005": {
+          "x": 2,
+          "y": 0,
+          "orientation": "vertical"
+        },
+        "V006": {
+          "x": 8,
+          "y": 7,
+          "orientation": "vertical"
+        },
+        "V007": {
+          "x": 8,
+          "y": 13,
+          "orientation": "horizontal"
+        },
+        "V008": {
+          "x": 3,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V009": {
+          "x": 0,
+          "y": 13,
+          "orientation": "horizontal"
+        },
+        "V010": {
+          "x": 1,
+          "y": 9,
+          "orientation": "horizontal"
+        },
+        "V011": {
+          "x": 6,
+          "y": 0,
+          "orientation": "vertical"
+        },
+        "V012": {
+          "x": 0,
+          "y": 0,
+          "orientation": "vertical"
+        },
+        "V013": {
+          "x": 3,
+          "y": 4,
+          "orientation": "horizontal"
+        },
+        "V014": {
+          "x": 4,
+          "y": 8,
+          "orientation": "horizontal"
+        },
+        "V015": {
+          "x": 7,
+          "y": 2,
+          "orientation": "horizontal"
+        },
+        "V016": {
+          "x": 4,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V017": {
+          "x": 0,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V018": {
+          "x": 0,
+          "y": 3,
+          "orientation": "horizontal"
+        },
+        "V019": null,
+        "V020": {
+          "x": 3,
+          "y": 5,
+          "orientation": "horizontal"
+        },
+        "V021": {
+          "x": 8,
+          "y": 9,
+          "orientation": "vertical"
+        },
+        "V022": {
+          "x": 9,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V023": {
+          "x": 5,
+          "y": 17,
+          "orientation": "vertical"
+        },
+        "V024": {
+          "x": 0,
+          "y": 5,
+          "orientation": "vertical"
+        },
+        "V025": null,
+        "V026": {
+          "x": 8,
+          "y": 18,
+          "orientation": "vertical"
+        },
+        "V027": {
+          "x": 8,
+          "y": 15,
+          "orientation": "vertical"
+        },
+        "V028": {
+          "x": 6,
+          "y": 17,
+          "orientation": "vertical"
+        },
+        "V029": {
+          "x": 7,
+          "y": 3,
+          "orientation": "vertical"
+        }
+      }
+    },
+    "initial_score": 2933.0,
+    "final_score": 4557.0,
+    "best_score": 4557.0,
+    "runtime_seconds": 80.7432933000382,
+    "iterations": 18417
+  },
+  {
+    "dataset_id": "synthetic_10x20",
+    "trial": 3,
+    "seed": 44,
+    "algorithm": "Hill Climbing (Sideways)",
+    "initial_state": {
+      "placements": {
+        "V000": {
+          "x": 0,
+          "y": 9,
+          "orientation": "vertical"
+        },
+        "V001": {
+          "x": 3,
+          "y": 6,
+          "orientation": "vertical"
+        },
+        "V002": {
+          "x": 5,
+          "y": 7,
+          "orientation": "vertical"
+        },
+        "V003": {
+          "x": 4,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V004": null,
+        "V005": {
+          "x": 0,
+          "y": 4,
+          "orientation": "vertical"
+        },
+        "V006": null,
+        "V007": {
+          "x": 5,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V008": {
+          "x": 3,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V009": null,
+        "V010": null,
+        "V011": {
+          "x": 1,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V012": null,
+        "V013": {
+          "x": 4,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V014": null,
+        "V015": null,
+        "V016": {
+          "x": 3,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V017": {
+          "x": 8,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V018": {
+          "x": 7,
+          "y": 5,
+          "orientation": "horizontal"
+        },
+        "V019": null,
+        "V020": {
+          "x": 0,
+          "y": 16,
+          "orientation": "vertical"
+        },
+        "V021": {
+          "x": 8,
+          "y": 10,
+          "orientation": "horizontal"
+        },
+        "V022": {
+          "x": 5,
+          "y": 16,
+          "orientation": "horizontal"
+        },
+        "V023": {
+          "x": 2,
+          "y": 8,
+          "orientation": "vertical"
+        },
+        "V024": {
+          "x": 7,
+          "y": 16,
+          "orientation": "vertical"
+        },
+        "V025": {
+          "x": 2,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V026": null,
+        "V027": {
+          "x": 7,
+          "y": 12,
+          "orientation": "horizontal"
+        },
+        "V028": {
+          "x": 6,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V029": null
+      }
+    },
+    "final_state": {
+      "placements": {
+        "V000": {
+          "x": 1,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V001": {
+          "x": 3,
+          "y": 6,
+          "orientation": "vertical"
+        },
+        "V002": {
+          "x": 5,
+          "y": 7,
+          "orientation": "vertical"
+        },
+        "V003": {
+          "x": 4,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V004": {
+          "x": 0,
+          "y": 4,
+          "orientation": "vertical"
+        },
+        "V005": null,
+        "V006": {
+          "x": 5,
+          "y": 16,
+          "orientation": "horizontal"
+        },
+        "V007": {
+          "x": 1,
+          "y": 11,
+          "orientation": "vertical"
+        },
+        "V008": {
+          "x": 7,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V009": {
+          "x": 2,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V010": {
+          "x": 4,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V011": {
+          "x": 8,
+          "y": 10,
+          "orientation": "horizontal"
+        },
+        "V012": {
+          "x": 6,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V013": {
+          "x": 1,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V014": {
+          "x": 5,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V015": {
+          "x": 8,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V016": {
+          "x": 3,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V017": {
+          "x": 8,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V018": {
+          "x": 5,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V019": null,
+        "V020": {
+          "x": 0,
+          "y": 16,
+          "orientation": "vertical"
+        },
+        "V021": {
+          "x": 8,
+          "y": 5,
+          "orientation": "horizontal"
+        },
+        "V022": {
+          "x": 2,
+          "y": 10,
+          "orientation": "horizontal"
+        },
+        "V023": {
+          "x": 2,
+          "y": 8,
+          "orientation": "vertical"
+        },
+        "V024": null,
+        "V025": null,
+        "V026": {
+          "x": 0,
+          "y": 9,
+          "orientation": "vertical"
+        },
+        "V027": {
+          "x": 7,
+          "y": 12,
+          "orientation": "horizontal"
+        },
+        "V028": {
+          "x": 8,
+          "y": 7,
+          "orientation": "vertical"
+        },
+        "V029": {
+          "x": 7,
+          "y": 16,
+          "orientation": "vertical"
+        }
+      }
+    },
+    "best_state": {
+      "placements": {
+        "V000": {
+          "x": 0,
+          "y": 9,
+          "orientation": "vertical"
+        },
+        "V001": {
+          "x": 3,
+          "y": 6,
+          "orientation": "vertical"
+        },
+        "V002": {
+          "x": 5,
+          "y": 7,
+          "orientation": "vertical"
+        },
+        "V003": {
+          "x": 4,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V004": {
+          "x": 0,
+          "y": 4,
+          "orientation": "vertical"
+        },
+        "V005": null,
+        "V006": {
+          "x": 8,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V007": {
+          "x": 5,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V008": {
+          "x": 3,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V009": {
+          "x": 2,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V010": {
+          "x": 0,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V011": {
+          "x": 1,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V012": {
+          "x": 4,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V013": {
+          "x": 4,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V014": {
+          "x": 5,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V015": {
+          "x": 6,
+          "y": 0,
+          "orientation": "vertical"
+        },
+        "V016": {
+          "x": 3,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V017": {
+          "x": 8,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V018": {
+          "x": 7,
+          "y": 5,
+          "orientation": "horizontal"
+        },
+        "V019": null,
+        "V020": {
+          "x": 0,
+          "y": 16,
+          "orientation": "vertical"
+        },
+        "V021": {
+          "x": 8,
+          "y": 10,
+          "orientation": "horizontal"
+        },
+        "V022": {
+          "x": 5,
+          "y": 16,
+          "orientation": "horizontal"
+        },
+        "V023": {
+          "x": 2,
+          "y": 8,
+          "orientation": "vertical"
+        },
+        "V024": null,
+        "V025": null,
+        "V026": {
+          "x": 2,
+          "y": 10,
+          "orientation": "horizontal"
+        },
+        "V027": {
+          "x": 7,
+          "y": 12,
+          "orientation": "horizontal"
+        },
+        "V028": {
+          "x": 6,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V029": {
+          "x": 7,
+          "y": 16,
+          "orientation": "vertical"
+        }
+      }
+    },
+    "initial_score": 2933.0,
+    "final_score": 4385.0,
+    "best_score": 4385.0,
+    "runtime_seconds": 20.525724999955855,
+    "iterations": 30
+  },
+  {
+    "dataset_id": "synthetic_10x20",
+    "trial": 3,
+    "seed": 44,
+    "algorithm": "Hill Climbing (Stochastic)",
+    "initial_state": {
+      "placements": {
+        "V000": {
+          "x": 0,
+          "y": 9,
+          "orientation": "vertical"
+        },
+        "V001": {
+          "x": 3,
+          "y": 6,
+          "orientation": "vertical"
+        },
+        "V002": {
+          "x": 5,
+          "y": 7,
+          "orientation": "vertical"
+        },
+        "V003": {
+          "x": 4,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V004": null,
+        "V005": {
+          "x": 0,
+          "y": 4,
+          "orientation": "vertical"
+        },
+        "V006": null,
+        "V007": {
+          "x": 5,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V008": {
+          "x": 3,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V009": null,
+        "V010": null,
+        "V011": {
+          "x": 1,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V012": null,
+        "V013": {
+          "x": 4,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V014": null,
+        "V015": null,
+        "V016": {
+          "x": 3,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V017": {
+          "x": 8,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V018": {
+          "x": 7,
+          "y": 5,
+          "orientation": "horizontal"
+        },
+        "V019": null,
+        "V020": {
+          "x": 0,
+          "y": 16,
+          "orientation": "vertical"
+        },
+        "V021": {
+          "x": 8,
+          "y": 10,
+          "orientation": "horizontal"
+        },
+        "V022": {
+          "x": 5,
+          "y": 16,
+          "orientation": "horizontal"
+        },
+        "V023": {
+          "x": 2,
+          "y": 8,
+          "orientation": "vertical"
+        },
+        "V024": {
+          "x": 7,
+          "y": 16,
+          "orientation": "vertical"
+        },
+        "V025": {
+          "x": 2,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V026": null,
+        "V027": {
+          "x": 7,
+          "y": 12,
+          "orientation": "horizontal"
+        },
+        "V028": {
+          "x": 6,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V029": null
+      }
+    },
+    "final_state": {
+      "placements": {
+        "V000": {
+          "x": 0,
+          "y": 9,
+          "orientation": "vertical"
+        },
+        "V001": {
+          "x": 3,
+          "y": 6,
+          "orientation": "vertical"
+        },
+        "V002": {
+          "x": 7,
+          "y": 16,
+          "orientation": "vertical"
+        },
+        "V003": {
+          "x": 4,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V004": {
+          "x": 2,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V005": null,
+        "V006": {
+          "x": 5,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V007": {
+          "x": 5,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V008": {
+          "x": 3,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V009": {
+          "x": 5,
+          "y": 7,
+          "orientation": "vertical"
+        },
+        "V010": {
+          "x": 0,
+          "y": 4,
+          "orientation": "vertical"
+        },
+        "V011": {
+          "x": 1,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V012": {
+          "x": 3,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V013": {
+          "x": 4,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V014": {
+          "x": 3,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V015": {
+          "x": 6,
+          "y": 11,
+          "orientation": "vertical"
+        },
+        "V016": null,
+        "V017": {
+          "x": 8,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V018": {
+          "x": 7,
+          "y": 5,
+          "orientation": "horizontal"
+        },
+        "V019": null,
+        "V020": {
+          "x": 0,
+          "y": 16,
+          "orientation": "vertical"
+        },
+        "V021": {
+          "x": 8,
+          "y": 10,
+          "orientation": "horizontal"
+        },
+        "V022": {
+          "x": 5,
+          "y": 16,
+          "orientation": "horizontal"
+        },
+        "V023": {
+          "x": 2,
+          "y": 8,
+          "orientation": "vertical"
+        },
+        "V024": null,
+        "V025": null,
+        "V026": {
+          "x": 0,
+          "y": 12,
+          "orientation": "horizontal"
+        },
+        "V027": {
+          "x": 7,
+          "y": 12,
+          "orientation": "horizontal"
+        },
+        "V028": {
+          "x": 6,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V029": null
+      }
+    },
+    "best_state": {
+      "placements": {
+        "V000": {
+          "x": 0,
+          "y": 9,
+          "orientation": "vertical"
+        },
+        "V001": {
+          "x": 3,
+          "y": 6,
+          "orientation": "vertical"
+        },
+        "V002": {
+          "x": 7,
+          "y": 16,
+          "orientation": "vertical"
+        },
+        "V003": {
+          "x": 4,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V004": {
+          "x": 2,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V005": null,
+        "V006": {
+          "x": 5,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V007": {
+          "x": 5,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V008": {
+          "x": 3,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V009": {
+          "x": 5,
+          "y": 7,
+          "orientation": "vertical"
+        },
+        "V010": {
+          "x": 0,
+          "y": 4,
+          "orientation": "vertical"
+        },
+        "V011": {
+          "x": 1,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V012": {
+          "x": 3,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V013": {
+          "x": 4,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V014": {
+          "x": 3,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V015": {
+          "x": 6,
+          "y": 11,
+          "orientation": "vertical"
+        },
+        "V016": null,
+        "V017": {
+          "x": 8,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V018": {
+          "x": 7,
+          "y": 5,
+          "orientation": "horizontal"
+        },
+        "V019": null,
+        "V020": {
+          "x": 0,
+          "y": 16,
+          "orientation": "vertical"
+        },
+        "V021": {
+          "x": 8,
+          "y": 10,
+          "orientation": "horizontal"
+        },
+        "V022": {
+          "x": 5,
+          "y": 16,
+          "orientation": "horizontal"
+        },
+        "V023": {
+          "x": 2,
+          "y": 8,
+          "orientation": "vertical"
+        },
+        "V024": null,
+        "V025": null,
+        "V026": {
+          "x": 0,
+          "y": 12,
+          "orientation": "horizontal"
+        },
+        "V027": {
+          "x": 7,
+          "y": 12,
+          "orientation": "horizontal"
+        },
+        "V028": {
+          "x": 6,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V029": null
+      }
+    },
+    "initial_score": 2933.0,
+    "final_score": 4045.0,
+    "best_score": 4045.0,
+    "runtime_seconds": 8.4361730000237,
+    "iterations": 14
+  },
+  {
+    "dataset_id": "synthetic_10x20",
+    "trial": 3,
+    "seed": 44,
+    "algorithm": "Hill Climbing (Random Restart)",
+    "initial_state": {
+      "placements": {
+        "V000": {
+          "x": 0,
+          "y": 9,
+          "orientation": "vertical"
+        },
+        "V001": {
+          "x": 3,
+          "y": 6,
+          "orientation": "vertical"
+        },
+        "V002": {
+          "x": 5,
+          "y": 7,
+          "orientation": "vertical"
+        },
+        "V003": {
+          "x": 4,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V004": null,
+        "V005": {
+          "x": 0,
+          "y": 4,
+          "orientation": "vertical"
+        },
+        "V006": null,
+        "V007": {
+          "x": 5,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V008": {
+          "x": 3,
+          "y": 17,
+          "orientation": "horizontal"
+        },
+        "V009": null,
+        "V010": null,
+        "V011": {
+          "x": 1,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V012": null,
+        "V013": {
+          "x": 4,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V014": null,
+        "V015": null,
+        "V016": {
+          "x": 3,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V017": {
+          "x": 8,
+          "y": 1,
+          "orientation": "vertical"
+        },
+        "V018": {
+          "x": 7,
+          "y": 5,
+          "orientation": "horizontal"
+        },
+        "V019": null,
+        "V020": {
+          "x": 0,
+          "y": 16,
+          "orientation": "vertical"
+        },
+        "V021": {
+          "x": 8,
+          "y": 10,
+          "orientation": "horizontal"
+        },
+        "V022": {
+          "x": 5,
+          "y": 16,
+          "orientation": "horizontal"
+        },
+        "V023": {
+          "x": 2,
+          "y": 8,
+          "orientation": "vertical"
+        },
+        "V024": {
+          "x": 7,
+          "y": 16,
+          "orientation": "vertical"
+        },
+        "V025": {
+          "x": 2,
+          "y": 12,
+          "orientation": "vertical"
+        },
+        "V026": null,
+        "V027": {
+          "x": 7,
+          "y": 12,
+          "orientation": "horizontal"
+        },
+        "V028": {
+          "x": 6,
+          "y": 2,
+          "orientation": "vertical"
+        },
+        "V029": null
+      }
+    },
+    "final_state": {
+      "placements": {
+        "V000": {
+          "x": 8,
+          "y": 16,
+          "orientation": "vertical"
+        },
+        "V001": {
+          "x": 8,
+          "y": 9,
+          "orientation": "vertical"
+        },
+        "V002": {
+          "x": 0,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V003": {
+          "x": 8,
+          "y": 15,
+          "orientation": "horizontal"
+        },
+        "V004": {
+          "x": 6,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V005": {
+          "x": 1,
+          "y": 14,
+          "orientation": "vertical"
+        },
+        "V006": null,
+        "V007": {
+          "x": 5,
+          "y": 0,
+          "orientation": "vertical"
+        },
+        "V008": {
+          "x": 8,
+          "y": 13,
+          "orientation": "horizontal"
+        },
+        "V009": {
+          "x": 5,
+          "y": 5,
+          "orientation": "vertical"
+        },
+        "V010": {
+          "x": 5,
+          "y": 3,
+          "orientation": "horizontal"
+        },
+        "V011": {
+          "x": 0,
+          "y": 18,
+          "orientation": "vertical"
+        },
+        "V012": {
+          "x": 8,
+          "y": 6,
+          "orientation": "vertical"
+        },
+        "V013": {
+          "x": 4,
+          "y": 2,
+          "orientation": "horizontal"
+        },
+        "V014": {
+          "x": 8,
+          "y": 3,
+          "orientation": "vertical"
+        },
+        "V015": {
+          "x": 0,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V016": {
+          "x": 4,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V017": {
+          "x": 2,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V018": {
+          "x": 0,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V019": null,
+        "V020": {
+          "x": 1,
+          "y": 3,
+          "orientation": "horizontal"
+        },
+        "V021": {
+          "x": 6,
+          "y": 9,
+          "orientation": "vertical"
+        },
+        "V022": {
+          "x": 2,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V023": {
+          "x": 0,
+          "y": 16,
+          "orientation": "vertical"
+        },
+        "V024": {
+          "x": 4,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V025": null,
+        "V026": {
+          "x": 6,
+          "y": 17,
+          "orientation": "vertical"
+        },
+        "V027": {
+          "x": 2,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V028": {
+          "x": 1,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V029": {
+          "x": 1,
+          "y": 8,
+          "orientation": "horizontal"
+        }
+      }
+    },
+    "best_state": {
+      "placements": {
+        "V000": {
+          "x": 8,
+          "y": 16,
+          "orientation": "vertical"
+        },
+        "V001": {
+          "x": 8,
+          "y": 9,
+          "orientation": "vertical"
+        },
+        "V002": {
+          "x": 0,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V003": {
+          "x": 8,
+          "y": 15,
+          "orientation": "horizontal"
+        },
+        "V004": {
+          "x": 6,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V005": {
+          "x": 1,
+          "y": 14,
+          "orientation": "vertical"
+        },
+        "V006": null,
+        "V007": {
+          "x": 5,
+          "y": 0,
+          "orientation": "vertical"
+        },
+        "V008": {
+          "x": 8,
+          "y": 13,
+          "orientation": "horizontal"
+        },
+        "V009": {
+          "x": 5,
+          "y": 5,
+          "orientation": "vertical"
+        },
+        "V010": {
+          "x": 5,
+          "y": 3,
+          "orientation": "horizontal"
+        },
+        "V011": {
+          "x": 0,
+          "y": 18,
+          "orientation": "vertical"
+        },
+        "V012": {
+          "x": 8,
+          "y": 6,
+          "orientation": "vertical"
+        },
+        "V013": {
+          "x": 4,
+          "y": 2,
+          "orientation": "horizontal"
+        },
+        "V014": {
+          "x": 8,
+          "y": 3,
+          "orientation": "vertical"
+        },
+        "V015": {
+          "x": 0,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V016": {
+          "x": 4,
+          "y": 14,
+          "orientation": "horizontal"
+        },
+        "V017": {
+          "x": 2,
+          "y": 18,
+          "orientation": "horizontal"
+        },
+        "V018": {
+          "x": 0,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V019": null,
+        "V020": {
+          "x": 1,
+          "y": 3,
+          "orientation": "horizontal"
+        },
+        "V021": {
+          "x": 6,
+          "y": 9,
+          "orientation": "vertical"
+        },
+        "V022": {
+          "x": 2,
+          "y": 0,
+          "orientation": "horizontal"
+        },
+        "V023": {
+          "x": 0,
+          "y": 16,
+          "orientation": "vertical"
+        },
+        "V024": {
+          "x": 4,
+          "y": 11,
+          "orientation": "horizontal"
+        },
+        "V025": null,
+        "V026": {
+          "x": 6,
+          "y": 17,
+          "orientation": "vertical"
+        },
+        "V027": {
+          "x": 2,
+          "y": 6,
+          "orientation": "horizontal"
+        },
+        "V028": {
+          "x": 1,
+          "y": 1,
+          "orientation": "horizontal"
+        },
+        "V029": {
+          "x": 1,
+          "y": 8,
+          "orientation": "horizontal"
+        }
+      }
+    },
+    "initial_score": 2933.0,
+    "final_score": 4561.0,
+    "best_score": 4561.0,
+    "runtime_seconds": 38.398520799935795,
+    "iterations": 76
+  }
+]
