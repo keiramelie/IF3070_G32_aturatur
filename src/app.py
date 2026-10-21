@@ -6,6 +6,7 @@ import streamlit as st
 
 from src.algorithms.hill_climbing import run_hill_climbing
 from src.algorithms.simulated_annealing import run_simulated_annealing
+from src.algorithms.genetic_algorithm import run_genetic_algorithm
 from src.core.constraints import is_valid_state
 from src.core.dataset_loader import load_problem
 from src.core.initializer import generate_random_state
@@ -16,7 +17,8 @@ from src.visualization.ship_plot import plot_ship
 st.set_page_config(page_title="Ship Loading Optimizer", page_icon="🚢", layout="wide")
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-DATASETS = {"Synthetic 10×20 · 30 Vehicles": PROJECT_ROOT / "data" / "synthetic_10x20",}
+DATASET_NAME = "Synthetic 10×20 · 30 Vehicles"
+DATASET_PATH = PROJECT_ROOT / "data" / "synthetic_10x20"
 
 
 @st.cache_data
@@ -42,7 +44,6 @@ def running_best(history):
 # --------------------------- Shared configuration ---------------------------
 with st.sidebar:
     st.header("Configuration")
-    dataset_name = st.selectbox("Dataset", list(DATASETS))
     seed = st.number_input("Random Seed", min_value=0, value=42, step=1)
     load_prob = st.slider("Load Probability", 0.0, 1.0, 0.7, 0.1)
     generate_button = st.button("Generate Initial State", use_container_width=True)
@@ -53,7 +54,7 @@ with st.sidebar:
         "Maximum Iterations", min_value=1, max_value=10000, value=100, step=1
     )
 
-path = DATASETS[dataset_name]
+path = DATASET_PATH
 if not path.is_dir():
     st.error(f"Dataset directory not found: {path}")
     st.stop()
@@ -64,7 +65,7 @@ except Exception as exc:
     st.error(f"Cannot load dataset: {exc}")
     st.stop()
 
-config = (dataset_name, int(seed), float(load_prob))
+config = (DATASET_NAME, int(seed), float(load_prob))
 new_state_needed = (
     "initial_state" not in st.session_state
     or generate_button
@@ -88,7 +89,7 @@ if not is_valid_state(initial_state, vehicles, ship):
 
 st.title("🚢 Ship Loading Optimizer")
 st.caption(
-    f"{dataset_name}  ·  Ship {ship.width} × {ship.length}  ·  "
+    f"{DATASET_NAME}  ·  Ship {ship.width} × {ship.length}  ·  "
     f"Capacity {ship.max_capacity}  ·  {len(vehicles)} vehicles"
 )
 
@@ -99,7 +100,7 @@ with tab_single:
     left_control, right_control = st.columns([1, 2], vertical_alignment="bottom")
     with left_control:
         algorithm = st.selectbox(
-            "Algorithm", ["Hill Climbing", "Simulated Annealing"], key="single_algorithm"
+            "Algorithm", ["Hill Climbing", "Simulated Annealing", "Genetic Algorithm"], key="single_algorithm"
         )
     with right_control:
         st.caption("Run one algorithm and inspect its best configuration.")
@@ -114,6 +115,18 @@ with tab_single:
             config, algorithm, int(max_iterations),
             float(initial_temperature), float(cooling_rate),
         )
+    elif algorithm == "Genetic Algorithm":
+        pop_col, mutation_col = st.columns(2)
+        with pop_col:
+            population_size = st.number_input(
+                "Population Size", min_value=2, max_value=500, value=40, step=1
+            )
+        with mutation_col:
+            mutation_rate = st.slider("Mutation Rate", 0.0, 1.0, 0.1, 0.01)
+        single_config = (
+            config, algorithm, int(max_iterations),
+            int(population_size), float(mutation_rate),
+        )
     else:
         single_config = (config, algorithm, int(max_iterations))
 
@@ -127,7 +140,7 @@ with tab_single:
                         ship=ship,
                         max_iterations=int(max_iterations),
                     )
-                else:
+                elif algorithm == "Simulated Annealing":
                     result = run_simulated_annealing(
                         initial_state=initial_state,
                         vehicles=vehicles,
@@ -135,6 +148,16 @@ with tab_single:
                         initial_temperature=float(initial_temperature),
                         cooling_rate=float(cooling_rate),
                         max_iterations=int(max_iterations),
+                        seed=int(seed),
+                    )
+                else:
+                    result = run_genetic_algorithm(
+                        initial_state=initial_state,
+                        vehicles=vehicles,
+                        ship=ship,
+                        population_size=int(population_size),
+                        max_generations=int(max_iterations),
+                        mutation_rate=float(mutation_rate),
                         seed=int(seed),
                     )
             st.session_state.optimization_result = result
@@ -183,9 +206,17 @@ with tab_single:
 
         st.subheader("Optimization Progress")
         fig, ax = plt.subplots(figsize=(9, 3.5))
-        ax.plot(result.history, label="Current Score")
-        ax.plot(running_best(result.history), "--", label="Best So Far")
-        ax.set(xlabel="Iteration", ylabel="Shipping Fee")
+        if result.algorithm == "Genetic Algorithm":
+            ax.plot(result.history, label="Generation Best")
+            average_history = result.metadata.get("average_fitness_history", [])
+            if average_history:
+                ax.plot(average_history, label="Generation Average")
+            ax.plot(running_best(result.history), "--", label="Best So Far")
+            ax.set(xlabel="Generation", ylabel="Fitness (Shipping Fee)")
+        else:
+            ax.plot(result.history, label="Current Score")
+            ax.plot(running_best(result.history), "--", label="Best So Far")
+            ax.set(xlabel="Iteration", ylabel="Shipping Fee")
         ax.grid(alpha=0.25)
         ax.legend()
         st.pyplot(fig, use_container_width=True)
@@ -240,13 +271,14 @@ with tab_single:
 
 # ---------------------------- Algorithm comparison ---------------------------
 with tab_comparison:
-    st.caption("Both algorithms start from the same initial ship configuration.")
+    st.caption("HC, SA, and GA use the same dataset and initial ship configuration.")
+    st.caption("Comparison settings: SA temperature 100 / cooling 0.995; GA population 40 / mutation 0.1.")
     # Shared comparison settings are intentionally fixed
     compare_config = (config, int(max_iterations), 100.0, 0.995)
 
     if st.button("Run Comparison", type="primary", key="run_comparison"):
         try:
-            with st.spinner("Running Hill Climbing and Simulated Annealing..."):
+            with st.spinner("Running HC, SA, and GA..."):
                 hc = run_hill_climbing(
                     initial_state=initial_state,
                     vehicles=vehicles,
@@ -262,9 +294,20 @@ with tab_comparison:
                     max_iterations=int(max_iterations),
                     seed=int(seed),
                 )
+                ga = run_genetic_algorithm(
+                    initial_state=initial_state,
+                    vehicles=vehicles,
+                    ship=ship,
+                    population_size=40,
+                    max_generations=int(max_iterations),
+                    mutation_rate=0.1,
+                    seed=int(seed),
+                )
+
             st.session_state.comparison_results = {
                 "Hill Climbing": hc,
                 "Simulated Annealing": sa,
+                "Genetic Algorithm": ga,
             }
             st.session_state.comparison_config = compare_config
         except Exception as exc:
@@ -307,9 +350,9 @@ with tab_comparison:
         st.pyplot(fig, use_container_width=True)
         plt.close(fig)
         st.caption(
-            "One HC iteration evaluates many neighbors; one SA iteration samples "
-            "a candidate. Runtime is useful alongside iteration count."
-        )
+            "Iteration counts are not computationally equivalent: HC scans many "
+            "neighbors, SA samples candidates, and GA evaluates a population "
+            "per generation. Compare runtime as well as scores.")
 
         st.subheader("Best Ship Configurations")
         columns = st.columns(len(results))
