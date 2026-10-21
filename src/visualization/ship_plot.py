@@ -5,7 +5,7 @@ import json
 import sys
 import textwrap
 from pathlib import Path
-from src.core.models import Placement, Orientation, State
+from src.core.models import Vehicle, Ship, Placement, Orientation, State
 from src.core.constraints import is_valid_state
 import matplotlib.pyplot as plt
 from matplotlib import colormaps
@@ -243,6 +243,67 @@ def plot_ship_states(dataset_dir: Path = DEFAULT_DATASET_DIR):
     report_path.write_text("\n".join(report_lines), encoding="utf-8")
     print(f"Laporan kendaraan tidak dimuat disimpan: {report_path}")
 
+
+def plot_ship(state: State, vehicles: dict[str, Vehicle], ship: Ship, title: str = "Ship Layout"):
+    if not is_valid_state(state, vehicles, ship):
+        raise ValueError("Cannot visualize an invalid state.")
+
+    fig, ax = plt.subplots(
+        figsize=(max(5, ship.width * 0.5),
+                 max(5, ship.length * 0.35)))
+
+    ax.set_xlim(0, ship.width)
+    ax.set_ylim(ship.length, 0)
+
+    ax.set_aspect("equal")
+    ax.set_xticks(range(ship.width + 1))
+    ax.set_yticks(range(ship.length + 1))
+    ax.grid(True, alpha=0.25)
+
+    ax.set_xlabel("Ship width (x)")
+    ax.set_ylabel("Ship length (y)")
+    ax.set_title(title, fontsize=13, fontweight="bold")
+
+    palette = plt.get_cmap("tab20")
+
+    for index, vehicle_id in enumerate(sorted(vehicles)):
+        placement = state.placements[vehicle_id]
+
+        if placement is None:
+            continue
+
+        vehicle = vehicles[vehicle_id]
+        width, length = placement.dimension(vehicle)
+
+        rectangle = Rectangle(
+            (placement.x, placement.y),
+            width,
+            length,
+            facecolor=palette(index % 20),
+            edgecolor="#263238",
+            linewidth=1,
+            alpha=0.8,
+            zorder=2,
+        )
+
+        ax.add_patch(rectangle)
+
+        font_size = 7 if min(width, length) <= 2 else 9
+
+        ax.text(
+            placement.x + width / 2,
+            placement.y + length / 2,
+            vehicle_id,
+            ha="center",
+            va="center",
+            fontsize=font_size,
+            color="#17212b",
+            zorder=3,
+            clip_on=True,
+        )
+
+    fig.tight_layout()
+    return fig
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
