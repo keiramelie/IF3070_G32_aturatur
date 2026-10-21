@@ -9,6 +9,8 @@ from src.algorithms.genetic_algorithm import (
     initialize_population,
     select_parent_index,
     crossover_one_point,
+    repair_state,
+    mutate_state,
 )
 from src.core.constraints import is_valid_state
 from src.core.models import Orientation, Placement, Ship, State, Vehicle
@@ -196,6 +198,251 @@ class GeneticAlgorithmOperatorsTests (unittest.TestCase):
         self.assertIsNot(child, parent_a)
         child.placements["A"] = parent_b.placements["A"]
         self.assertIsNone(parent_a.placements["A"])
+
+
+class GeneticAlgorithmRepairTests (unittest.TestCase):
+    def test_repair_preserves_feasible_placements_without_mutating_input (self) -> None:
+        vehicles = {
+            "A": Vehicle("A", 2, 2, 100, 3, 1),
+            "B": Vehicle("B", 1, 1, 20, 1, 1),
+        }
+        ship = Ship(4, 3, 5)
+        candidate = State({
+            "A": Placement(0, 0, Orientation.HORIZONTAL),
+            "B": Placement(3, 2, Orientation.VERTICAL),
+        })
+        before = candidate.placements.copy()
+        repaired = repair_state(candidate, vehicles, ship, random.Random(11))
+        self.assertEqual(repaired.placements, before)
+        self.assertIsNot(repaired.placements, candidate.placements)
+        repaired.placements["B"] = None
+        self.assertEqual(candidate.placements, before)
+
+    def test_repair_relocates_overlapping_vehicle_if_space_remains (self) -> None:
+        vehicles = {
+            "A": Vehicle("A", 2, 2, 100, 4, 1),
+            "B": Vehicle("B", 1, 1, 10, 1, 1),
+        }
+        ship = Ship(4, 2, 10)
+        candidate = State({
+            "A": Placement(0, 0, Orientation.HORIZONTAL),
+            "B": Placement(0, 0, Orientation.VERTICAL),
+        })
+        self.assertFalse(is_valid_state(candidate, vehicles, ship))
+        result = repair_state(candidate, vehicles, ship, random.Random(9))
+        self.assertTrue(is_valid_state(result, vehicles, ship))
+        self.assertEqual(result.placements["A"], candidate.placements["A"])
+        self.assertIsNotNone(result.placements["B"])
+        self.assertNotEqual(result.placements["B"], candidate.placements["B"])
+
+    def test_repair_rotates_vehicle_when_only_other_orientation_fits (self) -> None:
+        vehicles = {
+            "A": Vehicle("A", 2, 2, 100, 3, 1),
+            "B": Vehicle("B", 2, 1, 20, 1, 1),
+        }
+        ship = Ship(3, 2, 10)
+        candidate = State({
+            "A": Placement(0, 0, Orientation.HORIZONTAL),
+            "B": Placement(0, 0, Orientation.HORIZONTAL),
+        })
+        result = repair_state(candidate, vehicles, ship, random.Random(3))
+        self.assertTrue(is_valid_state(result, vehicles, ship))
+        self.assertEqual(result.placements["B"], Placement(2, 0, Orientation.VERTICAL))
+
+    def test_repair_prioritizes_shipping_fee_when_deck_is_full (self) -> None:
+        vehicles = {
+            "high": Vehicle("high", 2, 2, 90, 3, 1),
+            "low": Vehicle("low", 1, 1, 10, 1, 1),
+        }
+        ship = Ship(2, 2, 10)
+        candidate = State({
+            "high": Placement(0, 0, Orientation.HORIZONTAL),
+            "low": Placement(0, 0, Orientation.VERTICAL),
+        })
+        result = repair_state(candidate, vehicles, ship, random.Random(11))
+        self.assertTrue(is_valid_state(result, vehicles, ship))
+        self.assertIsNotNone(result.placements["high"])
+        self.assertIsNone(result.placements["low"])
+
+    def test_repair_enforces_capacity_even_without_overlap (self) -> None:
+        vehicles = {
+            "high": Vehicle("high", 1, 1, 90, 5, 1),
+            "low": Vehicle("low", 1, 1, 10, 2, 1),
+        }
+        ship = Ship(3, 1, 5)
+        candidate = State({
+            "high": Placement(0, 0, Orientation.VERTICAL),
+            "low": Placement(1, 0, Orientation.VERTICAL),
+        })
+        result = repair_state(candidate, vehicles, ship, random.Random(3))
+        self.assertTrue(is_valid_state(result, vehicles, ship))
+        self.assertIsNotNone(result.placements["high"])
+        self.assertIsNone(result.placements["low"])
+
+    def test_repair_repositions_out_of_bounds_gene (self) -> None:
+        vehicles = {"A": Vehicle("A", 1, 1, 30, 1, 1)}
+        ship = Ship(2, 2, 10)
+        candidate = State({"A": Placement(7, 4, Orientation.HORIZONTAL)})
+        original = candidate.placements.copy()
+        first = repair_state(candidate, vehicles, ship, random.Random(4))
+        second = repair_state(candidate, vehicles, ship, random.Random(4))
+        self.assertTrue(is_valid_state(first, vehicles, ship))
+        self.assertIsNotNone(first.placements["A"])
+        self.assertEqual(first.placements, second.placements)
+        self.assertEqual(candidate.placements, original)
+
+    def test_repair_unloads_vehicle_that_cannot_physically_fit (self) -> None:
+        vehicles = {"huge": Vehicle("huge", 5, 4, 90, 2, 1)}
+        ship = Ship(2, 2, 10)
+        candidate = State({"huge": Placement(0, 0, Orientation.HORIZONTAL)})
+        result = repair_state(candidate, vehicles, ship, random.Random(5))
+        self.assertEqual(result.placements, {"huge": None})
+        self.assertTrue(is_valid_state(result, vehicles, ship))
+
+    def test_repair_rejects_malformed_chromosomes(self) -> None:
+        vehicles = {"A": Vehicle("A", 1, 1, 30, 1, 1)}
+        ship = Ship(2, 2, 10)
+        invalid = (
+            State({}),
+            State({"A": None, "Z": None}),
+            State({"A": "invalid"}),
+            State({"A": Placement(True, 0, Orientation.HORIZONTAL)}),
+            State({"A": Placement(0, 0, "horizontal")}),
+        )
+        for candidate in invalid:
+            with self.subTest(candidate=candidate.placements):
+                with self.assertRaises(ValueError):
+                    repair_state(candidate, vehicles, ship, random.Random(5))
+
+    def test_repair_crossover_output_is_safe_for_fitness (self) -> None:
+        vehicles = {
+            vehicle_id: Vehicle(vehicle_id, 1, 1, 10, 1, 1)
+            for vehicle_id in ("A", "B", "C", "D")
+        }
+        ship = Ship(5, 3, 10)
+        parent_a = State({
+            "A": Placement(0, 0, Orientation.HORIZONTAL),
+            "B": Placement(1, 0, Orientation.HORIZONTAL),
+            "C": Placement(2, 0, Orientation.HORIZONTAL),
+            "D": Placement(3, 0, Orientation.HORIZONTAL),
+        })
+        parent_b = State({
+            "A": Placement(4, 0, Orientation.HORIZONTAL),
+            "B": Placement(3, 0, Orientation.HORIZONTAL),
+            "C": Placement(0, 0, Orientation.HORIZONTAL),
+            "D": Placement(1, 0, Orientation.HORIZONTAL),
+        })
+        rng = Mock(spec=random.Random)
+        rng.randrange.return_value = 2
+        child = crossover_one_point(parent_a, parent_b, sorted(vehicles), rng)
+        self.assertFalse(is_valid_state(child, vehicles, ship))
+        repaired = repair_state(child, vehicles, ship, random.Random(19))
+        scores, _, _ = evaluate_population([repaired], vehicles, ship)
+        self.assertGreaterEqual(scores[0], 0)
+        self.assertTrue(is_valid_state(repaired, vehicles, ship))
+        self.assertFalse(is_valid_state(child, vehicles, ship))
+
+
+class GeneticAlgorithmMutationTests (unittest.TestCase):
+    def test_swap_can_exchange_vehicle_placements (self) -> None:
+        vehicles = {
+            vehicle_id: Vehicle(vehicle_id, 1, 1, 10, 1, 1)
+            for vehicle_id in ("A", "B")
+        }
+        ship = Ship(4, 2, 10)
+        original = State({
+            "A": Placement(0, 0, Orientation.HORIZONTAL),
+            "B": Placement(2, 0, Orientation.VERTICAL),
+        })
+        rng = Mock(spec=random.Random)
+        rng.choice.return_value = "swap"
+        rng.sample.return_value = ["A", "B"]
+        mutated = mutate_state(original, vehicles, ship, rng, max_attempts=1)
+        self.assertEqual(mutated.placements["A"], original.placements["B"])
+        self.assertEqual(mutated.placements["B"], original.placements["A"])
+        self.assertTrue(is_valid_state(mutated, vehicles, ship))
+        self.assertNotEqual(mutated.placements, original.placements)
+
+    def test_rotation_changes_orientation_and_preserves_parent (self) -> None:
+        vehicles = {"A": Vehicle("A", 2, 1, 50, 1, 1)}
+        ship = Ship(4, 4, 10)
+        original = State({"A": Placement(0, 0, Orientation.HORIZONTAL)})
+        rng = Mock(spec=random.Random)
+        rng.choice.side_effect = ["rotate", "A"]
+        mutated = mutate_state(original, vehicles, ship, rng, max_attempts=1)
+        self.assertEqual(mutated.placements["A"], Placement(0, 0, Orientation.VERTICAL))
+        self.assertEqual(original.placements["A"].orientation, Orientation.HORIZONTAL)
+
+    def test_move_can_load_an_unloaded_vehicle (self) -> None:
+        vehicles = {"A": Vehicle("A", 2, 1, 50, 1, 1)}
+        ship = Ship(4, 4, 10)
+        original = State({"A": None})
+        rng = Mock(spec=random.Random)
+        rng.choice.side_effect = ["move", "A", Orientation.HORIZONTAL]
+        rng.randrange.side_effect = [1, 2]
+        mutated = mutate_state(original, vehicles, ship, rng, max_attempts=1)
+        self.assertEqual(mutated.placements["A"], Placement(1, 2, Orientation.HORIZONTAL))
+        self.assertIsNone(original.placements["A"])
+
+    def test_move_can_unload_vehicle (self) -> None:
+        vehicles = {"A": Vehicle("A", 1, 1, 20, 1, 1)}
+        ship = Ship(2, 2, 10)
+        original = State({"A": Placement(0, 0, Orientation.HORIZONTAL)})
+        rng = Mock(spec=random.Random)
+        rng.choice.side_effect = ["move", "A"]
+        rng.random.return_value = 0.0
+        mutated = mutate_state(original, vehicles, ship, rng, max_attempts=1)
+        self.assertIsNone(mutated.placements["A"])
+        self.assertIsNotNone(original.placements["A"])
+
+    def test_mutation_returns_copy_if_no_valid_change_found (self) -> None:
+        vehicles = {"A": Vehicle("A", 2, 2, 50, 1, 1)}
+        ship = Ship(2, 2, 10)
+        original = State({"A": Placement(0, 0, Orientation.HORIZONTAL)})
+        rng = Mock(spec=random.Random)
+        rng.choice.side_effect = ["move", "A"]
+        rng.random.return_value = 0.9
+        rng.randrange.side_effect = [0, 0]
+        mutated = mutate_state(original, vehicles, ship, rng, max_attempts=1)
+        self.assertEqual(mutated.placements, original.placements)
+        self.assertIsNot(mutated, original)
+
+    def test_mutation_rejects_infeasible_initial_and_bad_budget (self) -> None:
+        vehicles = {"A": Vehicle("A", 1, 1, 20, 1, 1)}
+        ship = Ship(2, 2, 10)
+        invalid_state = State({"A": Placement(3, 0, Orientation.HORIZONTAL)})
+        with self.assertRaises(ValueError):
+            mutate_state(invalid_state, vehicles, ship, random.Random(2))
+        for attempts in (0, -1, True, 1.5):
+            with self.subTest(attempts=attempts):
+                with self.assertRaises(ValueError):
+                    mutate_state(State({"A": None}), vehicles, ship,
+                                 random.Random(2), max_attempts=attempts)
+
+    def test_mutation_reproducible_and_feasible_over_many_seeds (self) -> None:
+        vehicles = {
+            "A": Vehicle("A", 2, 1, 50, 1, 1),
+            "B": Vehicle("B", 1, 1, 20, 1, 1),
+            "C": Vehicle("C", 1, 1, 10, 1, 1),
+        }
+        ship = Ship(4, 4, 10)
+        initial = State({
+            "A": Placement(0, 0, Orientation.HORIZONTAL),
+            "B": Placement(3, 0, Orientation.VERTICAL),
+            "C": None,
+        })
+        initial_snapshot = initial.placements.copy()
+        for seed in range(60):
+            first = mutate_state(initial, vehicles, ship, random.Random(seed))
+            second = mutate_state(initial, vehicles, ship, random.Random(seed))
+            self.assertEqual(first.placements, second.placements)
+            self.assertTrue(is_valid_state(first, vehicles, ship))
+            self.assertEqual(initial.placements, initial_snapshot)
+
+    def test_mutation_on_empty_dataset_returns_a_copy (self) -> None:
+        initial = State({})
+        ship = Ship(2, 2, 0)
+        result = mutate_state(initial, {}, ship, random.Random(1))
 
 
 if __name__ == "__main__":
