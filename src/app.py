@@ -19,6 +19,9 @@ from src.core.dataset_loader import load_problem
 from src.core.initializer import generate_random_state
 from src.core.objective import calculate_objective
 from src.visualization.ship_plot import plot_ship
+from src.visualization.interactive_charts import (
+    optimization_figure, sa_diagnostic_figure, comparison_figure,
+)
 
 
 st.set_page_config(page_title="Ship Loading Optimizer", page_icon="🚢", layout="wide")
@@ -304,22 +307,8 @@ with tab_single:
             show_ship(result.best_state, vehicles, ship, "Best State")
 
         st.subheader("Optimization Progress")
-        fig, ax = plt.subplots(figsize=(9, 3.5))
-        if result.algorithm == "Genetic Algorithm":
-            ax.plot(result.history, label="Generation Best")
-            average_history = result.metadata.get("average_fitness_history", [])
-            if average_history:
-                ax.plot(average_history, label="Generation Average")
-            ax.plot(running_best(result.history), "--", label="Best So Far")
-            ax.set(xlabel="Generation", ylabel="Fitness (Shipping Fee)")
-        else:
-            ax.plot(result.history, label="Current Score")
-            ax.plot(running_best(result.history), "--", label="Best So Far")
-            ax.set(xlabel="Iteration", ylabel="Shipping Fee")
-        ax.grid(alpha=0.25)
-        ax.legend()
-        st.pyplot(fig, use_container_width=True)
-        plt.close(fig)
+        st.plotly_chart(optimization_figure(result), use_container_width=True,
+                        config={"displaylogo": False})
 
         if result.algorithm == "Simulated Annealing":
             st.subheader("Simulated Annealing Diagnostics")
@@ -328,21 +317,17 @@ with tab_single:
             left_diag, right_diag = st.columns(2)
             with left_diag:
                 if temp_history:
-                    fig, ax = plt.subplots(figsize=(5, 3))
-                    ax.plot(temp_history)
-                    ax.set(xlabel="Iteration", ylabel="Temperature")
-                    ax.grid(alpha=0.25)
-                    st.pyplot(fig, use_container_width=True)
-                    plt.close(fig)
+                    st.plotly_chart(
+                        sa_diagnostic_figure(temp_history, "Temperature Cooling", "Temperature"),
+                        use_container_width=True, config={"displaylogo": False},
+                    )
             with right_diag:
                 if prob_history:
-                    fig, ax = plt.subplots(figsize=(5, 3))
-                    ax.plot(prob_history)
-                    ax.set(xlabel="Iteration", ylabel="Acceptance Probability")
-                    ax.set_ylim(-0.05, 1.05)
-                    ax.grid(alpha=0.25)
-                    st.pyplot(fig, use_container_width=True)
-                    plt.close(fig)
+                    st.plotly_chart(
+                        sa_diagnostic_figure(prob_history, "Acceptance Probability",
+                                             "Probability", probability=True),
+                        use_container_width=True, config={"displaylogo": False},
+                    )
             st.caption(
                 f"Acceptance rate: {result.metadata.get('acceptance_rate', 0):.1%}"
             )
@@ -367,7 +352,7 @@ with tab_single:
     ]
     st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
     st.caption("Status reflects the best state when an optimization result is shown.")
-
+    
 # ---------------------------- Algorithm comparison ---------------------------
 with tab_comparison:
     comparison_options = [
@@ -499,14 +484,8 @@ with tab_comparison:
         st.dataframe(pd.DataFrame(summary), use_container_width=True, hide_index=True)
 
         st.subheader("Convergence Comparison")
-        fig, ax = plt.subplots(figsize=(9, 3.5))
-        for name, item in results.items():
-            ax.plot(running_best(item.history), label=name)
-        ax.set(xlabel="Iteration / Generation", ylabel="Best Objective Score")
-        ax.grid(alpha=0.25)
-        ax.legend(fontsize=8)
-        st.pyplot(fig, use_container_width=True)
-        plt.close(fig)
+        st.plotly_chart(comparison_figure(results), use_container_width=True,
+                        config={"displaylogo": False})
         st.caption(
             "Iteration counts are not computationally equivalent: HC scans many "
             "neighbors, SA samples candidates, and GA evaluates a population "
