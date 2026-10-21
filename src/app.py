@@ -1,16 +1,16 @@
-
 import random
 
 import matplotlib.pyplot as plt
 import pandas as pd
 import streamlit as st
 
+from pathlib import Path
+from src.core.dataset_loader import load_problem
 from src.core.models import Vehicle, Ship
 from src.core.initializer import generate_random_state
 from src.core.objective import calculate_objective
 from src.core.constraints import is_valid_state
 from src.visualization.ship_plot import plot_ship
-
 from src.algorithms.hill_climbing import run_hill_climbing
 from src.algorithms.simulated_annealing import run_simulated_annealing
 
@@ -22,21 +22,35 @@ st.set_page_config(
     layout="wide"
 )
 
-# SAMPLE PROBLEM DATA
-ship = Ship(
-    width=10,
-    length=20,
-    max_capacity=50
-)
+# DATASET CONFIGURATION
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
-vehicles = {
-    "V001": Vehicle("V001", 3, 4, 60, 5, 3),
-    "V002": Vehicle("V002", 2, 3, 40, 4, 2),
-    "V003": Vehicle("V003", 4, 5, 90, 8, 5),
-    "V004": Vehicle("V004", 3, 3, 70, 6, 1),
-    "V005": Vehicle("V005", 2, 4, 50, 5, 4),
-    "V006": Vehicle("V006", 4, 4, 80, 7, 2),
+DATASETS = {
+    "Synthetic 10x20 (30 Vehicles)": (
+        PROJECT_ROOT / "data" / "synthetic_10x20"
+    ),
 }
+
+@st.cache_data
+def load_dataset(dataset_path: str):
+    ship, vehicles = load_problem(Path(dataset_path))
+    return ship, vehicles
+
+dataset_name = st.sidebar.selectbox("Select Dataset",
+                                    options=list(DATASETS.keys()))
+
+dataset_path = DATASETS[dataset_name]
+
+if not dataset_path.exists():
+    st.error(f"Dataset folder not found: {dataset_path}")
+    st.stop()
+
+ship, vehicles = load_dataset(str(dataset_path))
+st.success("Dataset loaded successfully!")
+st.write("Ship:", ship)
+st.write("Number of vehicles:", len(vehicles))
+st.write("Sample vehicle:", next(iter(vehicles.values()), None))
+
 
 # SIDEBAR
 with st.sidebar:
@@ -111,7 +125,11 @@ with st.sidebar:
     )
 
 # INITIAL STATE
-config = (int(seed), float(load_prob))
+config = (
+    dataset_name,
+    int(seed),
+    float(load_prob)
+)
 
 if ("initial_state" not in st.session_state
     or generate_button
@@ -126,6 +144,9 @@ if ("initial_state" not in st.session_state
     st.session_state.initial_config = config
 
 initial_state = st.session_state.initial_state
+st.success("Initial state generated!")
+st.write("Loaded vehicles:", len(initial_state.loaded_vehicle_ids()))
+st.write("Unloaded vehicles:", len(initial_state.unloaded_vehicle_ids()))
 
 if not is_valid_state(initial_state, vehicles, ship):
     st.error("Invalid initial state detected!")
@@ -165,6 +186,11 @@ if run_button:
 # DASHBOARD
 st.title("🚢 Ship Loading Optimizer")
 st.caption("IF3070 — Local Search Optimization")
+st.caption(
+    f"Dataset: {dataset_name} | "
+    f"Ship: {ship.width} × {ship.length} | "
+    f"Vehicles: {len(vehicles)}"
+)
 
 st.divider()
 
@@ -180,20 +206,35 @@ capacity_percentage = (total_weight / ship.max_capacity * 100
 
 # Summary metrics
 col1, col2, col3, col4 = st.columns(4)
-
 col1.metric("Shipping Fee", 
             f"Rp {initial_score:,.0f} juta")
-
 col2.metric("Loaded Vehicles", 
             f"{len(loaded_ids)} / {len(vehicles)}")
-
 col3.metric("Weight Used", 
             f"{total_weight:g} / {ship.max_capacity:g}")
-
 col4.metric("Capacity Utilization", 
             f"{capacity_percentage:.1f}%")
 
+st.subheader("Ship Capacity Utilization")
+
+st.progress(min(max(capacity_percentage / 100, 0.0), 1.0),
+            text=f"{capacity_percentage:.1f}% of weight capacity used")
+
 st.divider()
+
+st.subheader("Vehicle Loading Status")
+
+status_counts = pd.DataFrame({
+    "Status": ["Loaded", "Unloaded"],
+    "Vehicles": [
+        len(loaded_ids),
+        len(unloaded_ids)
+    ]
+})
+
+st.bar_chart(
+    status_counts.set_index("Status")
+)
 
 # Ship visualization
 st.subheader("Initial Ship Configuration")
