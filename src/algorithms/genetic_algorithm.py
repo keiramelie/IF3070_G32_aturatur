@@ -2,12 +2,14 @@
 
 import math
 import random
+import time
 from collections.abc import Sequence
 
 from src.core.constraints import is_valid_state, is_within_bounds
 from src.core.initializer import generate_random_state
 from src.core.models import Orientation, Placement, Ship, State, Vehicle
 from src.core.objective import calculate_objective
+from src.core.results import AlgorithmResult
 
 
 MOVE_UNLOAD_PROBABILITY = 0.2
@@ -272,3 +274,85 @@ def mutate_state (
             return proposal
         
     return state.copy()
+
+def run_genetic_algorithm (
+    initial_state: State,
+    vehicles: dict[str, Vehicle],
+    ship: Ship,
+    population_size: int = 50,
+    max_generations: int = 200,
+    mutation_rate: float = 0.1,
+    seed: int | None = None,
+) -> AlgorithmResult:
+    if type(max_generations) is not int or max_generations < 0:
+        raise ValueError("max_generations must be a nonnegative integer")
+    if (
+        isinstance(mutation_rate, bool)
+        or not isinstance(mutation_rate, (int, float))
+        or not math.isfinite(mutation_rate)
+        or not 0.0 <= mutation_rate <= 1.0
+    ):
+        raise ValueError("mutation_rate must be a finite number between 0 and 1")
+
+    rng = random.Random(seed)
+    start = time.perf_counter()
+    population = initialize_population(
+        initial_state,
+        vehicles,
+        ship,
+        population_size,
+        seed=rng.getrandbits(64),
+    )
+    vehicle_ids = tuple(sorted(vehicles))
+    fitnesses, maximum, average = evaluate_population(population, vehicles, ship)
+    history = [maximum]
+    average_fitness_history = [average]
+    best_index = max(range(population_size), key=fitnesses.__getitem__)
+    best_state = population[best_index].copy()
+    best_score = fitnesses[best_index]
+    best_generation = 0
+
+    for generation in range(1, max_generations + 1):
+        next_population: list[State] = []
+        for _ in range(population_size):
+            parent_a = population[select_parent_index(fitnesses, rng)]
+            parent_b = population[select_parent_index(fitnesses, rng)]
+            child = crossover_one_point(parent_a, parent_b, vehicle_ids, rng)
+            child = repair_state(child, vehicles, ship, rng)
+            if rng.random() < mutation_rate:
+                child = mutate_state(child, vehicles, ship, rng)
+            next_population.append(child)
+
+        population = next_population
+        fitnesses, maximum, average = evaluate_population(population, vehicles, ship)
+        history.append(maximum)
+        average_fitness_history.append(average)
+        generation_best_index = max(range(population_size), key=fitnesses.__getitem__)
+        generation_best_score = fitnesses[generation_best_index]
+        if generation_best_score > best_score:
+            best_state = population[generation_best_index].copy()
+            best_score = generation_best_score
+            best_generation = generation
+
+    final_index = max(range(population_size), key=fitnesses.__getitem__)
+    final_state = population[final_index].copy()
+    return AlgorithmResult(
+        algorithm="Genetic Algorithm",
+        initial_state=initial_state.copy(),
+        final_state=final_state,
+        best_state=best_state,
+        best_score=best_score,
+        runtime=time.perf_counter() - start,
+        iterations=max_generations,
+        history=history,
+        metadata={
+            "population_size": population_size,
+            "max_generations": max_generations,
+            "mutation_rate": mutation_rate,
+            "seed": seed,
+            "average_fitness_history": average_fitness_history,
+            "best_generation": best_generation,
+            "final_population_best_score": fitnesses[final_index],
+            "fitness_evaluations": population_size * (max_generations + 1),
+        },
+    )

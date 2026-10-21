@@ -2,7 +2,7 @@
 
 import random
 import unittest
-from unittest.mock import Mock 
+from unittest.mock import Mock, patch
 
 from src.algorithms.genetic_algorithm import (
     evaluate_population,
@@ -11,10 +11,12 @@ from src.algorithms.genetic_algorithm import (
     crossover_one_point,
     repair_state,
     mutate_state,
+    run_genetic_algorithm,
 )
 from src.core.constraints import is_valid_state
 from src.core.models import Orientation, Placement, Ship, State, Vehicle
-
+from src.core.objective import calculate_objective
+from src.core.results import AlgorithmResult
 
 class GeneticAlgorithmPopulationTests (unittest.TestCase):
     def setUp(self) -> None:
@@ -443,6 +445,157 @@ class GeneticAlgorithmMutationTests (unittest.TestCase):
         initial = State({})
         ship = Ship(2, 2, 0)
         result = mutate_state(initial, {}, ship, random.Random(1))
+
+
+class GeneticAlgorithmDriverTests(unittest.TestCase):
+    def setUp (self) -> None:
+        self.vehicles = {
+            "A": Vehicle("A", 2, 1, 60, 2, 1),
+            "B": Vehicle("B", 1, 2, 40, 2, 2),
+            "C": Vehicle("C", 1, 1, 25, 1, 3),
+            "D": Vehicle("D", 1, 1, 15, 1, 4),
+        }
+        self.ship = Ship(5, 4, 5)
+        self.initial_state = State({
+            "A": Placement(0, 0, Orientation.HORIZONTAL),
+            "B": Placement(2, 0, Orientation.VERTICAL),
+            "C": None,
+            "D": Placement(4, 0, Orientation.HORIZONTAL),
+        })
+        self.assertTrue(is_valid_state(self.initial_state, self.vehicles, self.ship))
+
+    def test_result_contract_and_fitness_histories (self) -> None:
+        before = self.initial_state.placements.copy()
+        result = run_genetic_algorithm(
+            self.initial_state, self.vehicles, self.ship,
+            population_size=7, max_generations=5, mutation_rate=0.3, seed=42,
+        )
+        self.assertIsInstance(result, AlgorithmResult)
+        self.assertEqual(result.algorithm, "Genetic Algorithm")
+        self.assertEqual(result.iterations, 5)
+        self.assertEqual(len(result.history), 6)
+        self.assertEqual(len(result.metadata["average_fitness_history"]), 6)
+        self.assertTrue(is_valid_state(result.initial_state, self.vehicles, self.ship))
+        self.assertTrue(is_valid_state(result.final_state, self.vehicles, self.ship))
+        self.assertTrue(is_valid_state(result.best_state, self.vehicles, self.ship))
+        self.assertEqual(before, self.initial_state.placements)
+        self.assertIsNot(result.initial_state, self.initial_state)
+        self.assertEqual(result.initial_state.placements, before)
+        self.assertEqual(result.best_score, calculate_objective(result.best_state, self.vehicles))
+        self.assertEqual(result.best_score, max(result.history))
+        self.assertEqual(result.history[-1], calculate_objective(result.final_state, self.vehicles))
+        self.assertEqual(result.metadata["final_population_best_score"], result.history[-1])
+        self.assertEqual(result.metadata["population_size"], 7)
+        self.assertEqual(result.metadata["fitness_evaluations"], 7 * 6)
+        self.assertTrue(all(
+            average <= maximum
+            for average, maximum in zip(result.metadata["average_fitness_history"], result.history)
+        ))
+        self.assertGreaterEqual(result.runtime, 0)
+
+    def test_fixed_seed_reproducibility (self) -> None:
+        args = (self.initial_state, self.vehicles, self.ship)
+        first = run_genetic_algorithm(*args, population_size=9, max_generations=6, mutation_rate=0.4, seed=79)
+        second = run_genetic_algorithm(*args, population_size=9, max_generations=6, mutation_rate=0.4, seed=79)
+        self.assertEqual(first.history, second.history)
+        self.assertEqual(first.metadata, second.metadata)
+        self.assertEqual(first.final_state.placements, second.final_state.placements)
+        self.assertEqual(first.best_state.placements, second.best_state.placements)
+        self.assertEqual(first.best_score, second.best_score)
+
+    def test_zero_generations_returns_best_of_initial_population (self) -> None:
+        result = run_genetic_algorithm(
+            self.initial_state, self.vehicles, self.ship,
+            population_size=5, max_generations=0, mutation_rate=0.1, seed=8,
+        )
+        self.assertEqual(result.iterations, 0)
+        self.assertEqual(len(result.history), 1)
+        self.assertEqual(len(result.metadata["average_fitness_history"]), 1)
+        self.assertEqual(result.best_score, result.history[0])
+        self.assertEqual(result.best_state.placements, result.final_state.placements)
+        self.assertGreaterEqual(result.best_score, calculate_objective(self.initial_state, self.vehicles))
+        self.assertEqual(result.metadata["best_generation"], 0)
+
+    def test_pure_replacement_can_lose_best_in_final_population (self) -> None:
+        vehicles = {"A": Vehicle("A", 1, 1, 100, 1, 0)}
+        ship = Ship(1, 1, 1)
+        loaded = State({"A": Placement(0, 0, Orientation.HORIZONTAL)})
+        unloaded = State({"A": None})
+        with patch(
+            "src.algorithms.genetic_algorithm.initialize_population",
+            return_value=[loaded.copy(), unloaded.copy()],
+        ), patch(
+            "src.algorithms.genetic_algorithm.select_parent_index",
+            return_value=1,
+        ):
+            result = run_genetic_algorithm(
+                loaded, vehicles, ship, population_size=2,
+                max_generations=1, mutation_rate=0, seed=1,
+            )
+        self.assertEqual(result.history, [100.0, 0.0])
+        self.assertEqual(result.best_score, 100.0)
+        self.assertEqual(result.best_state.placements, loaded.placements)
+        self.assertEqual(result.final_state.placements, unloaded.placements)
+        self.assertEqual(result.metadata["best_generation"], 0)
+
+    def test_mutation_rate_controls_mutation_calls (self) -> None:
+        with patch("src.algorithms.genetic_algorithm.mutate_state") as mutation:
+            run_genetic_algorithm(
+                self.initial_state, self.vehicles, self.ship,
+                population_size=4, max_generations=3, mutation_rate=0, seed=9,
+            )
+            mutation.assert_not_called()
+        with patch(
+            "src.algorithms.genetic_algorithm.mutate_state",
+            side_effect=lambda state, vehicles, ship, rng: state.copy(),
+        ) as mutation:
+            run_genetic_algorithm(
+                self.initial_state, self.vehicles, self.ship,
+                population_size=4, max_generations=3, mutation_rate=1, seed=9,
+            )
+            self.assertEqual(mutation.call_count, 12)
+
+    def test_rejects_invalid_parameter_values (self) -> None:
+        cases = [
+            {"population_size": 1},
+            {"population_size": True},
+            {"population_size": 2.5},
+            {"max_generations": -1},
+            {"max_generations": True},
+            {"max_generations": 1.5},
+            {"mutation_rate": -0.1},
+            {"mutation_rate": 1.1},
+            {"mutation_rate": True},
+            {"mutation_rate": float("nan")},
+            {"mutation_rate": float("inf")},
+            {"mutation_rate": "0.5"},
+        ]
+        for case in cases:
+            with self.subTest(case=case):
+                arguments = {"population_size": 4, "max_generations": 0, "mutation_rate": 0.1}
+                arguments.update(case)
+                with self.assertRaises(ValueError):
+                    run_genetic_algorithm(
+                        self.initial_state, self.vehicles, self.ship,
+                        **arguments,
+                    )
+
+    def test_global_rng_is_unchanged_by_seeded_run (self) -> None:
+        before = random.getstate()
+        run_genetic_algorithm(
+            self.initial_state, self.vehicles, self.ship,
+            population_size=4, max_generations=3, mutation_rate=0.5, seed=777,
+        )
+        self.assertEqual(random.getstate(), before)
+
+    def test_zero_vehicles (self) -> None:
+        result = run_genetic_algorithm(
+            State({}), {}, Ship(1, 1, 1),
+            population_size=2, max_generations=3, seed=99,
+        )
+        self.assertEqual(result.history, [0.0, 0.0, 0.0, 0.0])
+        self.assertEqual(result.metadata["average_fitness_history"], result.history)
+        self.assertTrue(is_valid_state(result.best_state, {}, Ship(1, 1, 1)))
 
 
 if __name__ == "__main__":
