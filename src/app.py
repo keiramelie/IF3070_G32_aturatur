@@ -4,7 +4,12 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import streamlit as st
 
-from src.algorithms.hill_climbing import run_hill_climbing
+from src.algorithms.hill_climbing import (
+    run_hill_climbing,
+    run_hill_climbing_sideways,
+    run_hill_climbing_stochastic,
+    run_hill_climbing_random_restart,
+)
 from src.algorithms.simulated_annealing import run_simulated_annealing
 from src.algorithms.genetic_algorithm import run_genetic_algorithm
 from src.core.constraints import is_valid_state
@@ -100,12 +105,36 @@ with tab_single:
     left_control, right_control = st.columns([1, 2], vertical_alignment="bottom")
     with left_control:
         algorithm = st.selectbox(
-            "Algorithm", ["Hill Climbing", "Simulated Annealing", "Genetic Algorithm"], key="single_algorithm"
+            "Algorithm", ["Hill Climbing",
+                          "Hill Climbing (Sideways)",
+                          "Hill Climbing (Stochastic)",
+                          "Hill Climbing (Random Restart)",
+                          "Simulated Annealing",
+                          "Genetic Algorithm",
+            ], key="single_algorithm"
         )
     with right_control:
         st.caption("Run one algorithm and inspect its best configuration.")
+    if algorithm == "Hill Climbing (Sideways)":
+        max_sideways = st.number_input(
+            "Maximum Sideways Moves", min_value=0, max_value=10000,
+            value=20, step=1, key="hc_max_sideways",
+        )
+        single_config = (config, algorithm, int(max_iterations), int(max_sideways), int(seed))
 
-    if algorithm == "Simulated Annealing":
+    elif algorithm == "Hill Climbing (Stochastic)":
+        single_config = (config, algorithm, int(max_iterations), int(seed))
+
+    elif algorithm == "Hill Climbing (Random Restart)":
+        max_restarts = st.number_input(
+            "Maximum Restarts", min_value=0, max_value=100,
+            value=3, step=1, key="hc_max_restarts",
+        )
+        single_config = (
+            config, algorithm, int(max_iterations), int(max_restarts),
+            float(load_prob), int(seed),
+        )
+    elif algorithm == "Simulated Annealing":
         temp_col, cooling_col = st.columns(2)
         with temp_col:
             initial_temperature = st.number_input("Initial Temperature", min_value=0.01, value=100.0)
@@ -139,6 +168,33 @@ with tab_single:
                         vehicles=vehicles,
                         ship=ship,
                         max_iterations=int(max_iterations),
+                    )
+                elif algorithm == "Hill Climbing (Sideways)":
+                    result = run_hill_climbing_sideways(
+                        initial_state=initial_state,
+                        vehicles=vehicles,
+                        ship=ship,
+                        max_sideways=int(max_sideways),
+                        max_iterations=int(max_iterations),
+                        seed=int(seed),
+                    )
+                elif algorithm == "Hill Climbing (Stochastic)":
+                    result = run_hill_climbing_stochastic(
+                        initial_state=initial_state,
+                        vehicles=vehicles,
+                        ship=ship,
+                        max_iterations=int(max_iterations),
+                        seed=int(seed),
+                    )
+                elif algorithm == "Hill Climbing (Random Restart)":
+                    result = run_hill_climbing_random_restart(
+                        initial_state=initial_state,
+                        vehicles=vehicles,
+                        ship=ship,
+                        max_restarts=int(max_restarts),
+                        max_iterations=int(max_iterations),
+                        load_prob=float(load_prob),
+                        seed=int(seed),
                     )
                 elif algorithm == "Simulated Annealing":
                     result = run_simulated_annealing(
