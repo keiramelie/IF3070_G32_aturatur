@@ -181,6 +181,8 @@ with tab_single:
     else:
         single_config = (config, algorithm, int(max_iterations))
 
+    single_config = (*single_config, objective_config)
+
     if st.button("Run Optimization", type="primary", key="run_single"):
         try:
             with st.spinner(f"Running {algorithm}..."):
@@ -368,51 +370,107 @@ with tab_single:
 
 # ---------------------------- Algorithm comparison ---------------------------
 with tab_comparison:
-    st.caption("HC, SA, and GA use the same dataset and initial ship configuration.")
-    st.caption("Comparison settings: SA temperature 100 / cooling 0.995; GA population 40 / mutation 0.1.")
-    # Shared comparison settings are intentionally fixed
-    compare_config = (config, int(max_iterations), 100.0, 0.995, objective_config)
+    comparison_options = [
+        "Hill Climbing",
+        "Hill Climbing (Sideways)",
+        "Hill Climbing (Stochastic)",
+        "Hill Climbing (Random Restart)",
+        "Simulated Annealing",
+        "Genetic Algorithm",
+    ]
+    selected_algorithms = st.multiselect(
+        "Algorithms to Compare",
+        options=comparison_options,
+        default=["Hill Climbing", "Simulated Annealing", "Genetic Algorithm"],
+        key="comparison_algorithms",
+    )
+    st.caption("All selected algorithms use the same dataset, initial state, and objective.")
+
+    compare_sideways = 20
+    compare_restarts = 3
+    if "Hill Climbing (Sideways)" in selected_algorithms:
+        compare_sideways = st.number_input(
+            "Comparison: Maximum Sideways Moves", min_value=0, max_value=10000,
+            value=20, step=1, key="comparison_sideways",
+        )
+    if "Hill Climbing (Random Restart)" in selected_algorithms:
+        compare_restarts = st.number_input(
+            "Comparison: Maximum Restarts", min_value=0, max_value=100,
+            value=3, step=1, key="comparison_restarts",
+        )
+
+    st.caption(
+        "Fixed settings: SA temperature 100 / cooling 0.995; "
+        "GA population 40 / mutation 0.1."
+    )
+
+    compare_config = (
+        config, objective_config, int(max_iterations),
+        tuple(selected_algorithms), int(compare_sideways), int(compare_restarts),
+        100.0, 0.995, 40, 0.1,
+    )
 
     if st.button("Run Comparison", type="primary", key="run_comparison"):
-        try:
-            with st.spinner("Running HC, SA, and GA..."):
-                hc = run_hill_climbing(
-                    initial_state=initial_state,
-                    vehicles=vehicles,
-                    ship=ship,
-                    max_iterations=int(max_iterations),
-                    objective=objective_function, 
-                )
-                sa = run_simulated_annealing(
-                    initial_state=initial_state,
-                    vehicles=vehicles,
-                    ship=ship,
-                    initial_temperature=100.0,
-                    cooling_rate=0.995,
-                    max_iterations=int(max_iterations),
-                    seed=int(seed),
-                    objective=objective_function, 
-                )
-                ga = run_genetic_algorithm(
-                    initial_state=initial_state,
-                    vehicles=vehicles,
-                    ship=ship,
-                    population_size=40,
-                    max_generations=int(max_iterations),
-                    mutation_rate=0.1,
-                    seed=int(seed),
-                    objective=objective_function, 
-                )
+        if not selected_algorithms:
+            st.warning("Select at least one algorithm to compare.")
+        else:
+            try:
+                results_new = {}
+                for name in selected_algorithms:
+                    with st.spinner(f"Running {name}..."):
+                        if name == "Hill Climbing":
+                            item = run_hill_climbing(
+                                initial_state=initial_state, vehicles=vehicles,
+                                ship=ship, max_iterations=int(max_iterations),
+                                objective=objective_function,
+                            )
+                        elif name == "Hill Climbing (Sideways)":
+                            item = run_hill_climbing_sideways(
+                                initial_state=initial_state, vehicles=vehicles,
+                                ship=ship, max_sideways=int(compare_sideways),
+                                max_iterations=int(max_iterations), seed=int(seed),
+                                objective=objective_function,
+                            )
+                        elif name == "Hill Climbing (Stochastic)":
+                            item = run_hill_climbing_stochastic(
+                                initial_state=initial_state, vehicles=vehicles,
+                                ship=ship, max_iterations=int(max_iterations),
+                                seed=int(seed), objective=objective_function,
+                            )
+                        elif name == "Hill Climbing (Random Restart)":
+                            item = run_hill_climbing_random_restart(
+                                initial_state=initial_state, vehicles=vehicles,
+                                ship=ship, max_restarts=int(compare_restarts),
+                                max_iterations=int(max_iterations),
+                                load_prob=float(load_prob), seed=int(seed),
+                                objective=objective_function,
+                            )
+                        elif name == "Simulated Annealing":
+                            item = run_simulated_annealing(
+                                initial_state=initial_state, vehicles=vehicles,
+                                ship=ship, initial_temperature=100.0,
+                                cooling_rate=0.995,
+                                max_iterations=int(max_iterations),
+                                seed=int(seed), objective=objective_function,
+                            )
+                        elif name == "Genetic Algorithm":
+                            item = run_genetic_algorithm(
+                                initial_state=initial_state, vehicles=vehicles,
+                                ship=ship, population_size=40,
+                                max_generations=int(max_iterations),
+                                mutation_rate=0.1, seed=int(seed),
+                                objective=objective_function,
+                            )
+                        else:
+                            raise ValueError(f"Unsupported algorithm: {name}")
+                    results_new[name] = item
 
-            st.session_state.comparison_results = {
-                "Hill Climbing": hc,
-                "Simulated Annealing": sa,
-                "Genetic Algorithm": ga,
-            }
-            st.session_state.comparison_config = compare_config
-        except Exception as exc:
-            st.session_state.pop("comparison_results", None)
-            st.error(f"Comparison failed: {exc}")
+                st.session_state.comparison_results = results_new
+                st.session_state.comparison_config = compare_config
+            except Exception as exc:
+                st.session_state.pop("comparison_results", None)
+                st.session_state.pop("comparison_config", None)
+                st.error(f"Comparison failed: {exc}")
 
     results = st.session_state.get("comparison_results")
     if st.session_state.get("comparison_config") != compare_config:
@@ -425,21 +483,19 @@ with tab_comparison:
         for name, item in results.items():
             score = objective_function(item.best_state, vehicles)
             actual_fee = calculate_objective(item.best_state, vehicles)
-            summary.append(
-                {
-                    "Algorithm": name,
-                    "Initial Objective": initial_obj,
-                    "Best Objective": score,
-                    "Improvement (%)": (
-                        round((score - initial_obj) / initial_obj * 100, 2)
-                        if initial_obj > 0 else None
-                    ),
-                    "Actual Shipping Fee": actual_fee,
-                    "Runtime (s)": round(item.runtime, 4),
-                    "Iterations": item.iterations,
-                    "Valid": is_valid_state(item.best_state, vehicles, ship),
-                }
-            )
+            summary.append({
+                "Algorithm": name,
+                "Initial Objective": initial_obj,
+                "Best Objective": score,
+                "Improvement (%)": (
+                    round((score - initial_obj) / initial_obj * 100, 2)
+                    if initial_obj > 0 else None
+                ),
+                "Actual Shipping Fee": actual_fee,
+                "Runtime (s)": round(item.runtime, 4),
+                "Iterations": item.iterations,
+                "Valid": is_valid_state(item.best_state, vehicles, ship),
+            })
         st.dataframe(pd.DataFrame(summary), use_container_width=True, hide_index=True)
 
         st.subheader("Convergence Comparison")
@@ -448,20 +504,24 @@ with tab_comparison:
             ax.plot(running_best(item.history), label=name)
         ax.set(xlabel="Iteration / Generation", ylabel="Best Objective Score")
         ax.grid(alpha=0.25)
-        ax.legend()
+        ax.legend(fontsize=8)
         st.pyplot(fig, use_container_width=True)
         plt.close(fig)
         st.caption(
             "Iteration counts are not computationally equivalent: HC scans many "
             "neighbors, SA samples candidates, and GA evaluates a population "
-            "per generation. Compare runtime as well as scores.")
+            "per generation. Random Restart combines multiple HC runs; "
+            "compare runtime as well as scores."
+        )
 
         st.subheader("Best Ship Configurations")
-        columns = st.columns(len(results))
-        for col, (name, item) in zip(columns, results.items()):
-            with col:
-                show_ship(item.best_state, vehicles, ship, name)
-                st.caption(
-                    f"{len(item.best_state.loaded_vehicle_ids())} / "
-                    f"{len(vehicles)} vehicles loaded"
-                )
+        result_items = list(results.items())
+        for offset in range(0, len(result_items), 2):
+            columns = st.columns(2)
+            for col, (name, item) in zip(columns, result_items[offset:offset + 2]):
+                with col:
+                    show_ship(item.best_state, vehicles, ship, name)
+                    st.caption(
+                        f"{len(item.best_state.loaded_vehicle_ids())} / "
+                        f"{len(vehicles)} vehicles loaded"
+                    )
