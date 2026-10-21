@@ -5,7 +5,7 @@ import unittest
 from pathlib import Path
 
 from src.core.models import Ship, Vehicle
-from src.experiments.ga_experiments import (
+from experiments.ga_experiments import (
     OUTPUT_FILES,
     calculate_dataset_fingerprint,
     run_ga_parameter_studies,

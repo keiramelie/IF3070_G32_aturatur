@@ -97,6 +97,7 @@ def run_ga_parameter_studies (
     seeds: Sequence[int],
     output_dir: str | Path,
     mutation_rate: float = 0.1,
+    load_probability: float = 0.7,
 ) -> list[dict]:
     if not isinstance(dataset_id, str) or not dataset_id.strip():
         raise ValueError("dataset_id must be a nonempty string")
@@ -114,6 +115,13 @@ def run_ga_parameter_studies (
         or not 0 <= mutation_rate <= 1
     ):
         raise ValueError("mutation_rate must be a finite number between 0 and 1")
+    if (
+        isinstance(load_probability, bool)
+        or not isinstance(load_probability, (int, float))
+        or not math.isfinite(load_probability)
+        or not 0 <= load_probability <= 1
+    ):
+        raise ValueError("load_probability must be a finite number between 0 and 1")
 
     empty_state = State({vehicle_id: None for vehicle_id in vehicles})
     if not is_valid_state(empty_state, vehicles, ship):
@@ -129,9 +137,11 @@ def run_ga_parameter_studies (
     initial_states: dict[int, tuple[State, int, int]] = {}
     for seed in trials:
         rng = random.Random(seed)
-        initializer_seed = rng.getrandbits(64)
+        initializer_seed = seed
         algorithm_seed = rng.getrandbits(64)
-        initial_state = generate_random_state(vehicles, ship, seed=initializer_seed)
+        initial_state = generate_random_state(
+            vehicles, ship, load_prob=load_probability, seed=initializer_seed
+        )
         if not is_valid_state(initial_state, vehicles, ship):
             raise RuntimeError("random initializer returned an invalid state")
         initial_states[seed] = (initial_state, initializer_seed, algorithm_seed)
@@ -186,6 +196,7 @@ def run_ga_parameter_studies (
                 "population_size": population_size,
                 "max_generations": max_generations,
                 "mutation_rate": mutation_rate,
+                "load_probability": load_probability,
                 "initial_score": calculate_objective(initial_state, vehicles),
                 "final_score": final_score,
                 "best_score": result.best_score,
@@ -230,6 +241,7 @@ def run_ga_parameter_studies (
         "study_population_values": list(populations),
         "study_fixed_generations": fixed_generations,
         "mutation_rate": mutation_rate,
+        "load_probability": load_probability,
         "seeds": list(trials),
         "number_of_runs": len(records),
     }
@@ -242,7 +254,7 @@ def run_ga_parameter_studies (
     summary_fields = (
         "run_id", "study", "setting", "trial", "dataset_id", "dataset_sha256",
         "seed", "initializer_seed", "algorithm_seed", "population_size",
-        "max_generations", "mutation_rate", "initial_score", "final_score",
+        "max_generations", "mutation_rate", "load_probability", "initial_score", "final_score",
         "best_score", "best_generation", "fitness_evaluations", "runtime_seconds",
     )
     history_fields = (
