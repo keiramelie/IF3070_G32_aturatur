@@ -3,7 +3,7 @@
 import math
 import random
 import time
-from collections.abc import Sequence
+from collections.abc import Sequence, Callable
 
 from src.core.constraints import is_valid_state, is_within_bounds
 from src.core.initializer import generate_random_state
@@ -43,6 +43,7 @@ def evaluate_population (
     population: Sequence[State],
     vehicles: dict[str, Vehicle],
     ship: Ship,
+    objective: Callable[[State, dict[str, Vehicle]], float] = calculate_objective, 
 ) -> tuple[list[float], float, float]:
     if not population:
         raise ValueError("population cannot be empty")
@@ -51,7 +52,7 @@ def evaluate_population (
     for individual in population:
         if not is_valid_state(individual, vehicles, ship):
             raise ValueError("population contains an infeasible state")
-        fitnesses.append(calculate_objective(individual, vehicles))
+        fitnesses.append(objective(individual, vehicles))
 
     return fitnesses, max(fitnesses), sum(fitnesses) / len(fitnesses)
 
@@ -283,6 +284,7 @@ def run_genetic_algorithm (
     max_generations: int = 200,
     mutation_rate: float = 0.1,
     seed: int | None = None,
+    objective: Callable[[State, dict[str, Vehicle]], float] = calculate_objective, 
 ) -> AlgorithmResult:
     if type(max_generations) is not int or max_generations < 0:
         raise ValueError("max_generations must be a nonnegative integer")
@@ -304,7 +306,7 @@ def run_genetic_algorithm (
         seed=rng.getrandbits(64),
     )
     vehicle_ids = tuple(sorted(vehicles))
-    fitnesses, maximum, average = evaluate_population(population, vehicles, ship)
+    fitnesses, maximum, average = evaluate_population(population, vehicles, ship, objective=objective)
     history = [maximum]
     average_fitness_history = [average]
     best_index = max(range(population_size), key=fitnesses.__getitem__)
@@ -324,7 +326,7 @@ def run_genetic_algorithm (
             next_population.append(child)
 
         population = next_population
-        fitnesses, maximum, average = evaluate_population(population, vehicles, ship)
+        fitnesses, maximum, average = evaluate_population(population, vehicles, ship, objective=objective)
         history.append(maximum)
         average_fitness_history.append(average)
         generation_best_index = max(range(population_size), key=fitnesses.__getitem__)
