@@ -1,0 +1,29 @@
+{
+  "dataset_id": "synthetic_10x20",
+  "dataset_sha256": "3f5481d8002f63f580eb4fe5bb1bd06369f35f322c4a75cffce6fd25c434b312",
+  "comparison_population_size": 40,
+  "comparison_generations": 100,
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "include_bonus": false,
+  "input_sha256": {
+    "ga_manifest.json": "de2e74e79a93370e68d2155b634016b768d84e67e71f36c3010ca6146a903ec1",
+    "ga_runs.json": "1c0485c827539c6038d8c28d28b8f2d6c7bb0619d15c080bd6ad97780922f00f",
+    "ga_summary.csv": "dba0d29b3bdc62849613fa5caa932b8bf3dc04e6e22c040e62cb8630a4f20070",
+    "ga_history.csv": "db50db5c8fa1b97b0b3a21f8f1cd323a83f94c647bbd220c7788db99f6d29ed6",
+    "local_summary.csv": "4f7d9d1d770f6a0747d23218b54de0823a17bd705e69e0c71f66a8db920c3e54",
+    "local_states.json": "f3a66bd64c02cfe3533e360ba81e0a1e2b716e2cca7bc4ecbdb4aa9a0d54d78a"
+  },
+  "generated_files": [
+    "ga_statistics.csv",
+    "ga_fitness_vs_generations.png",
+    "ga_fitness_vs_population.png",
+    "ga_convergence_pop40_gen100.png",
+    "algorithm_comparison.csv",
+    "algorithm_best_fitness.png",
+    "algorithm_runtime.png"
+  ]
+}
