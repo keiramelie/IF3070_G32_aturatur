@@ -5,7 +5,8 @@ import json
 import sys
 import textwrap
 from pathlib import Path
-
+from src.core.models import Placement, Orientation, State
+from src.core.constraints import is_valid_state
 import matplotlib.pyplot as plt
 from matplotlib import colormaps
 from matplotlib.patches import Rectangle
@@ -51,7 +52,7 @@ def draw_state(ax, state_data, ship, vehicles, title):
     ``build_grid`` (grid[y][x]).
     """
     ax.set_xlim(0, ship.width)
-    ax.set_ylim(ship.length, 0)  # origin at top-left
+    ax.set_ylim(ship.length, 0)
     ax.set_xticks(range(ship.width + 1))
     ax.set_yticks(range(ship.length + 1))
     ax.set_aspect("equal")
@@ -71,15 +72,35 @@ def draw_state(ax, state_data, ship, vehicles, title):
     overlaps = set()
     loaded_ids, total_weight = [], 0
 
+    state = State(
+        placements={
+            vehicle_id: (
+                None if placement is None else Placement(
+                    x=placement["x"],
+                    y=placement["y"],
+                    orientation=Orientation(placement["orientation"])
+                )
+            )
+            for vehicle_id, placement in placements.items()
+        }
+    )
+
+    if not is_valid_state(state, vehicles, ship):
+        raise ValueError(f"Invalid state detected in visualization: {title}")
+
     for index, (vehicle_id, placement) in enumerate(sorted(placements.items())):
         if placement is None:
             continue
 
         vehicle = vehicles[vehicle_id]
-        x, y = placement["x"], placement["y"]
-        width, length = Placement(
-            x, y, Orientation(placement["orientation"])
-        ).dimension(vehicle)
+
+        x = placement["x"]
+        y = placement["y"]
+        orientation = Orientation(placement["orientation"])
+
+        placement_obj = Placement(x=x, y=y, orientation=orientation)
+
+        width, length = placement_obj.dimension(vehicle)
 
         loaded_ids.append(vehicle_id)
         total_weight += vehicle.weight
