@@ -75,16 +75,23 @@ def ship_figure(state, vehicles, ship, title="Ship Layout"):
 
     fig.update_layout(
         title=dict(text=title, font=dict(size=15)),
-        margin=dict(l=10, r=10, t=45, b=25),
-        height=max(380, min(750, int(ship.length * 28))),
+        margin=dict(l=55, r=20, t=45, b=55),
+        height=max(480, min(800, int(ship.length * 34))),
         template='plotly_white', showlegend=False,
         dragmode='pan', hovermode='closest',
-        xaxis=dict(range=[0, ship.width], dtick=1, title='Width (x)',
-                   showgrid=True, gridcolor='#E2E8F0', zeroline=False,
-                   fixedrange=False, constrain='domain'),
-        yaxis=dict(range=[ship.length, 0], dtick=1, title='Length (y)',
-                   showgrid=True, gridcolor='#E2E8F0', zeroline=False,
-                   scaleanchor='x', scaleratio=1, constrain='domain'),
+        xaxis=dict(
+            range=[0, ship.width], autorange=False,
+            tickmode='linear', tick0=0, dtick=1,
+            title='Width (x)', showgrid=True, gridcolor='#E2E8F0',
+            zeroline=False, fixedrange=False,
+        ),
+        yaxis=dict(
+            range=[ship.length, 0], autorange=False,
+            tickmode='linear', tick0=0, dtick=1,
+            title='Length (y)', showgrid=True, gridcolor='#E2E8F0',
+            zeroline=False, fixedrange=False,
+            scaleanchor='x', scaleratio=1,
+        ),
     )
     return fig
 

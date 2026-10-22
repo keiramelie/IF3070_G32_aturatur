@@ -77,15 +77,6 @@ def unloaded_vehicle_report(state_data, vehicles):
 
 
 def draw_state(ax, state_data, ship, vehicles, title):
-    """Draw one ship-loading state.
-
-    Dimensions come from ``Placement.dimension`` (the SAME rule the
-    constraint checker uses: horizontal = (long, short), vertical =
-    (short, long)). Drawing with the raw vehicle.width/length would show
-    boxes that do not match the validated layout.
-    The y axis points DOWN so (0, 0) is the top-left cell, as in
-    ``build_grid`` (grid[y][x]).
-    """
     ax.set_xlim(0, ship.width)
     ax.set_ylim(ship.length, 0)
     ax.set_xticks(range(ship.width + 1))

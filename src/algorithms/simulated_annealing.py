@@ -1,26 +1,3 @@
-"""Simulated Annealing for the ship-loading optimization problem.
-
-Efficiency note
----------------
-The original version enumerated *all* feasible neighbors at every iteration
-(~0.3 s per call on a 10x20 deck with 30 vehicles). SA only needs ONE random
-neighbor per iteration, so this version samples a single random move
-(swap / move / load-unload / rotate -- the three move families of the spec)
-and validates it with the shared ``is_valid_state``. Full neighbor
-enumeration is used only (a) as a fallback when sampling finds nothing and
-(b) for the periodic local-optimum check that defines "stuck".
-
-Definition of "stuck" (documented for the report)
--------------------------------------------------
-Every ``stuck_check_interval`` iterations the *current* state is tested
-exactly: if no feasible neighbor has a strictly higher objective, the state is
-a local optimum and that check counts as one "stuck" observation.
-``stuck_count``    = number of stuck observations,
-``stuck_checks``   = number of checks performed,
-``stuck_frequency``= stuck_count / stuck_checks,
-``stuck_episodes`` = number of maximal runs of consecutive stuck checks.
-"""
-
 from math import exp, isfinite
 from numbers import Real
 from random import Random
@@ -60,12 +37,6 @@ def run_simulated_annealing(
     stuck_check_interval: int = 25,
     objective=calculate_objective,
 ) -> AlgorithmResult:
-    """Run Simulated Annealing (maximization of total ShippingFee).
-
-    Better or equal candidates are always accepted; worse candidates are
-    accepted with probability exp(dE / T), dE = f(candidate) - f(current) < 0.
-    Geometric cooling: T <- T * cooling_rate.
-    """
     _validate_number("initial_temperature", initial_temperature)
     _validate_number("cooling_rate", cooling_rate)
     _validate_number("min_temperature", min_temperature)

@@ -1,4 +1,3 @@
-
 """Steepest-Ascent Hill Climbing for the ship-loading optimizer."""
 
 from time import perf_counter
@@ -17,22 +16,6 @@ def run_hill_climbing(
     max_iterations: int | None = None,
     objective=calculate_objective,
 ) -> AlgorithmResult:
-    """Run Steepest-Ascent Hill Climbing.
-
-    At each iteration, evaluate all feasible neighbors and select the
-    highest-scoring one. Move to it only if it improves the objective.
-
-    Args:
-        initial_state: Valid starting state.
-        vehicles: Mapping of vehicle IDs to Vehicle objects.
-        ship: Ship and deck constraints.
-        max_iterations: Maximum number of neighbor evaluations, or None
-            to continue until a stopping condition is reached.
-
-    Returns:
-        AlgorithmResult containing the final state, best state, score
-        history, runtime, iteration count, and termination metadata.
-    """
     if max_iterations is not None:
         if (
             not isinstance(max_iterations, int)
@@ -73,8 +56,6 @@ def run_hill_climbing(
             termination_reason = "no_feasible_neighbors"
             break
 
-        # Steepest-Ascent: evaluate all feasible neighbors and select
-        # the neighbor with the highest objective value.
         neighbor_scores = [
             objective(neighbor, vehicles)
             for neighbor in neighbors
@@ -131,9 +112,9 @@ def run_hill_climbing(
 # ---------------------------------------------------------------------------
 # Bonus: other Hill Climbing variants (sideways, stochastic, random restart)
 # ---------------------------------------------------------------------------
-from random import Random  # noqa: E402
+from random import Random
 
-from src.core.initializer import generate_random_state  # noqa: E402
+from src.core.initializer import generate_random_state
 
 
 def _finish(name, initial, current, best, best_score, start, iterations,
@@ -155,11 +136,6 @@ def run_hill_climbing_sideways(
     initial_state, vehicles, ship, max_sideways=20, max_iterations=1000,
     seed=None, objective=calculate_objective,
 ) -> AlgorithmResult:
-    """Steepest-ascent that may take equal-score (sideways) moves.
-
-    Stops at a strict local optimum, when ``max_sideways`` sideways moves
-    have been used, or at ``max_iterations``.
-    """
     if not is_valid_state(initial_state, vehicles, ship):
         raise ValueError("initial_state must be valid")
     if max_sideways < 0:
@@ -244,11 +220,6 @@ def run_hill_climbing_random_restart(
     initial_state, vehicles, ship, max_restarts=5, max_iterations=1000,
     load_prob=0.5, seed=None, objective=calculate_objective,
 ) -> AlgorithmResult:
-    """Random-restart HC: steepest-ascent from several random states.
-
-    Restart 0 uses ``initial_state``; later restarts use fresh random states.
-    Stops after ``max_restarts`` restarts (in addition to the first run).
-    """
     if not is_valid_state(initial_state, vehicles, ship):
         raise ValueError("initial_state must be valid")
     if max_restarts < 0:

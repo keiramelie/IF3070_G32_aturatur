@@ -1,6 +1,5 @@
 import plotly.graph_objects as go
 
-
 def running_best(history):
     values = []
     best = float('-inf')
