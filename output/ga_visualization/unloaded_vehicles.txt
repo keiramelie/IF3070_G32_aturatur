@@ -1,0 +1,152 @@
+=== Trial 1 | Genetic Algorithm | vary_generations_50_trial_1 (final state) ===
+Kendaraan tidak dimuat: 5 dari 30 (total fee tidak terangkut: 475)
+  V001: ukuran 2x4, fee 70, berat 10, ETA 8
+  V005: ukuran 3x4, fee 108, berat 14, ETA 4
+  V017: ukuran 2x4, fee 112, berat 12, ETA 8
+  V024: ukuran 3x4, fee 134, berat 10, ETA 1
+  V025: ukuran 3x4, fee 51, berat 7, ETA 10
+
+=== Trial 2 | Genetic Algorithm | vary_generations_50_trial_2 (final state) ===
+Kendaraan tidak dimuat: 5 dari 30 (total fee tidak terangkut: 507)
+  V005: ukuran 3x4, fee 108, berat 14, ETA 4
+  V017: ukuran 2x4, fee 112, berat 12, ETA 8
+  V019: ukuran 3x4, fee 102, berat 14, ETA 7
+  V024: ukuran 3x4, fee 134, berat 10, ETA 1
+  V025: ukuran 3x4, fee 51, berat 7, ETA 10
+
+=== Trial 3 | Genetic Algorithm | vary_generations_50_trial_3 (final state) ===
+Kendaraan tidak dimuat: 5 dari 30 (total fee tidak terangkut: 443)
+  V001: ukuran 2x4, fee 70, berat 10, ETA 8
+  V005: ukuran 3x4, fee 108, berat 14, ETA 4
+  V017: ukuran 2x4, fee 112, berat 12, ETA 8
+  V019: ukuran 3x4, fee 102, berat 14, ETA 7
+  V025: ukuran 3x4, fee 51, berat 7, ETA 10
+
+=== Trial 1 | Genetic Algorithm | vary_generations_100_trial_1 (final state) ===
+Kendaraan tidak dimuat: 5 dari 30 (total fee tidak terangkut: 465)
+  V001: ukuran 2x4, fee 70, berat 10, ETA 8
+  V005: ukuran 3x4, fee 108, berat 14, ETA 4
+  V019: ukuran 3x4, fee 102, berat 14, ETA 7
+  V024: ukuran 3x4, fee 134, berat 10, ETA 1
+  V025: ukuran 3x4, fee 51, berat 7, ETA 10
+
+=== Trial 2 | Genetic Algorithm | vary_generations_100_trial_2 (final state) ===
+Kendaraan tidak dimuat: 5 dari 30 (total fee tidak terangkut: 441)
+  V005: ukuran 3x4, fee 108, berat 14, ETA 4
+  V007: ukuran 1x2, fee 46, berat 13, ETA 9
+  V019: ukuran 3x4, fee 102, berat 14, ETA 7
+  V024: ukuran 3x4, fee 134, berat 10, ETA 1
+  V025: ukuran 3x4, fee 51, berat 7, ETA 10
+
+=== Trial 3 | Genetic Algorithm | vary_generations_100_trial_3 (final state) ===
+Kendaraan tidak dimuat: 5 dari 30 (total fee tidak terangkut: 465)
+  V001: ukuran 2x4, fee 70, berat 10, ETA 8
+  V005: ukuran 3x4, fee 108, berat 14, ETA 4
+  V019: ukuran 3x4, fee 102, berat 14, ETA 7
+  V024: ukuran 3x4, fee 134, berat 10, ETA 1
+  V025: ukuran 3x4, fee 51, berat 7, ETA 10
+
+=== Trial 1 | Genetic Algorithm | vary_generations_150_trial_1 (final state) ===
+Kendaraan tidak dimuat: 5 dari 30 (total fee tidak terangkut: 465)
+  V001: ukuran 2x4, fee 70, berat 10, ETA 8
+  V005: ukuran 3x4, fee 108, berat 14, ETA 4
+  V019: ukuran 3x4, fee 102, berat 14, ETA 7
+  V024: ukuran 3x4, fee 134, berat 10, ETA 1
+  V025: ukuran 3x4, fee 51, berat 7, ETA 10
+
+=== Trial 2 | Genetic Algorithm | vary_generations_150_trial_2 (final state) ===
+Kendaraan tidak dimuat: 5 dari 30 (total fee tidak terangkut: 465)
+  V001: ukuran 2x4, fee 70, berat 10, ETA 8
+  V005: ukuran 3x4, fee 108, berat 14, ETA 4
+  V019: ukuran 3x4, fee 102, berat 14, ETA 7
+  V024: ukuran 3x4, fee 134, berat 10, ETA 1
+  V025: ukuran 3x4, fee 51, berat 7, ETA 10
+
+=== Trial 3 | Genetic Algorithm | vary_generations_150_trial_3 (final state) ===
+Kendaraan tidak dimuat: 5 dari 30 (total fee tidak terangkut: 465)
+  V001: ukuran 2x4, fee 70, berat 10, ETA 8
+  V005: ukuran 3x4, fee 108, berat 14, ETA 4
+  V019: ukuran 3x4, fee 102, berat 14, ETA 7
+  V024: ukuran 3x4, fee 134, berat 10, ETA 1
+  V025: ukuran 3x4, fee 51, berat 7, ETA 10
+
+=== Trial 1 | Genetic Algorithm | vary_population_20_trial_1 (final state) ===
+Kendaraan tidak dimuat: 7 dari 30 (total fee tidak terangkut: 710)
+  V005: ukuran 3x4, fee 108, berat 14, ETA 4
+  V006: ukuran 2x2, fee 66, berat 8, ETA 1
+  V008: ukuran 1x2, fee 137, berat 13, ETA 4
+  V017: ukuran 2x4, fee 112, berat 12, ETA 8
+  V019: ukuran 3x4, fee 102, berat 14, ETA 7
+  V024: ukuran 3x4, fee 134, berat 10, ETA 1
+  V025: ukuran 3x4, fee 51, berat 7, ETA 10
+
+=== Trial 2 | Genetic Algorithm | vary_population_20_trial_2 (final state) ===
+Kendaraan tidak dimuat: 7 dari 30 (total fee tidak terangkut: 866)
+  V001: ukuran 2x4, fee 70, berat 10, ETA 8
+  V002: ukuran 3x4, fee 206, berat 9, ETA 4
+  V004: ukuran 3x4, fee 195, berat 15, ETA 1
+  V005: ukuran 3x4, fee 108, berat 14, ETA 4
+  V019: ukuran 3x4, fee 102, berat 14, ETA 7
+  V024: ukuran 3x4, fee 134, berat 10, ETA 1
+  V025: ukuran 3x4, fee 51, berat 7, ETA 10
+
+=== Trial 3 | Genetic Algorithm | vary_population_20_trial_3 (final state) ===
+Kendaraan tidak dimuat: 8 dari 30 (total fee tidak terangkut: 1031)
+  V001: ukuran 2x4, fee 70, berat 10, ETA 8
+  V005: ukuran 3x4, fee 108, berat 14, ETA 4
+  V011: ukuran 2x2, fee 99, berat 8, ETA 4
+  V020: ukuran 3x4, fee 210, berat 5, ETA 6
+  V024: ukuran 3x4, fee 134, berat 10, ETA 1
+  V025: ukuran 3x4, fee 51, berat 7, ETA 10
+  V026: ukuran 2x2, fee 188, berat 9, ETA 3
+  V029: ukuran 3x4, fee 171, berat 8, ETA 10
+
+=== Trial 1 | Genetic Algorithm | vary_population_40_trial_1 (final state) ===
+Kendaraan tidak dimuat: 5 dari 30 (total fee tidak terangkut: 465)
+  V001: ukuran 2x4, fee 70, berat 10, ETA 8
+  V005: ukuran 3x4, fee 108, berat 14, ETA 4
+  V019: ukuran 3x4, fee 102, berat 14, ETA 7
+  V024: ukuran 3x4, fee 134, berat 10, ETA 1
+  V025: ukuran 3x4, fee 51, berat 7, ETA 10
+
+=== Trial 2 | Genetic Algorithm | vary_population_40_trial_2 (final state) ===
+Kendaraan tidak dimuat: 5 dari 30 (total fee tidak terangkut: 441)
+  V005: ukuran 3x4, fee 108, berat 14, ETA 4
+  V007: ukuran 1x2, fee 46, berat 13, ETA 9
+  V019: ukuran 3x4, fee 102, berat 14, ETA 7
+  V024: ukuran 3x4, fee 134, berat 10, ETA 1
+  V025: ukuran 3x4, fee 51, berat 7, ETA 10
+
+=== Trial 3 | Genetic Algorithm | vary_population_40_trial_3 (final state) ===
+Kendaraan tidak dimuat: 5 dari 30 (total fee tidak terangkut: 465)
+  V001: ukuran 2x4, fee 70, berat 10, ETA 8
+  V005: ukuran 3x4, fee 108, berat 14, ETA 4
+  V019: ukuran 3x4, fee 102, berat 14, ETA 7
+  V024: ukuran 3x4, fee 134, berat 10, ETA 1
+  V025: ukuran 3x4, fee 51, berat 7, ETA 10
+
+=== Trial 1 | Genetic Algorithm | vary_population_60_trial_1 (final state) ===
+Kendaraan tidak dimuat: 6 dari 30 (total fee tidak terangkut: 634)
+  V001: ukuran 2x4, fee 70, berat 10, ETA 8
+  V005: ukuran 3x4, fee 108, berat 14, ETA 4
+  V016: ukuran 3x4, fee 169, berat 13, ETA 4
+  V019: ukuran 3x4, fee 102, berat 14, ETA 7
+  V024: ukuran 3x4, fee 134, berat 10, ETA 1
+  V025: ukuran 3x4, fee 51, berat 7, ETA 10
+
+=== Trial 2 | Genetic Algorithm | vary_population_60_trial_2 (final state) ===
+Kendaraan tidak dimuat: 6 dari 30 (total fee tidak terangkut: 531)
+  V001: ukuran 2x4, fee 70, berat 10, ETA 8
+  V005: ukuran 3x4, fee 108, berat 14, ETA 4
+  V006: ukuran 2x2, fee 66, berat 8, ETA 1
+  V019: ukuran 3x4, fee 102, berat 14, ETA 7
+  V024: ukuran 3x4, fee 134, berat 10, ETA 1
+  V025: ukuran 3x4, fee 51, berat 7, ETA 10
+
+=== Trial 3 | Genetic Algorithm | vary_population_60_trial_3 (final state) ===
+Kendaraan tidak dimuat: 5 dari 30 (total fee tidak terangkut: 465)
+  V001: ukuran 2x4, fee 70, berat 10, ETA 8
+  V005: ukuran 3x4, fee 108, berat 14, ETA 4
+  V019: ukuran 3x4, fee 102, berat 14, ETA 7
+  V024: ukuran 3x4, fee 134, berat 10, ETA 1
+  V025: ukuran 3x4, fee 51, berat 7, ETA 10
