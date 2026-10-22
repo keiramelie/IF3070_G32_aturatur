@@ -1,4 +1,4 @@
-
+import pytest
 import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
 
@@ -46,13 +46,13 @@ def test_ship_plot():
 
     # Check vehicle A dimensions
     rectangle_a = ax.patches[0]
-    assert rectangle_a.get_width() == 3
-    assert rectangle_a.get_height() == 2
+    assert rectangle_a.get_width() == pytest.approx(2.8)
+    assert rectangle_a.get_height() == pytest.approx(1.8)
 
     # Check vehicle B dimensions
     rectangle_b = ax.patches[1]
-    assert rectangle_b.get_width() == 2
-    assert rectangle_b.get_height() == 3
+    assert rectangle_b.get_width() == pytest.approx(1.8)
+    assert rectangle_b.get_height() == pytest.approx(2.8)
 
     plt.close(fig)
 

@@ -22,7 +22,6 @@ from src.visualization.ship_plot import plot_ship
 from src.visualization.interactive_charts import (
     optimization_figure, sa_diagnostic_figure, comparison_figure,
 )
-from src.visualization.interactive_ship import ship_figure, selected_vehicle_id
 
 
 st.set_page_config(page_title="Ship Loading Optimizer", page_icon="🚢", layout="wide")
@@ -38,39 +37,9 @@ def load_dataset(dataset_path: str):
 
 
 def show_ship(state, vehicles, ship, title):
-    key = "ship_" + "".join(ch if ch.isalnum() else "_" for ch in title)
-    event = st.plotly_chart(
-        ship_figure(state, vehicles, ship, title),
-        use_container_width=True,
-        key=key,
-        on_select="rerun",
-        selection_mode=["points"],
-        config={"displaylogo": False, "scrollZoom": False},
-    )
-
-    loaded = sorted(state.loaded_vehicle_ids())
-    clicked = selected_vehicle_id(event)
-    # Click a vehicle label/center, or use the selector as an accessible fallback.
-    selection_key = key + "_selection"
-    if clicked in loaded:
-        st.session_state[selection_key] = clicked
-    elif st.session_state.get(selection_key, "—") not in (["—"] + loaded):
-        st.session_state[selection_key] = "—"
-    chosen = st.selectbox(
-        "Inspect vehicle", options=["—"] + loaded,
-        key=selection_key,
-        help="Hover over a vehicle for details, or select one to keep its details visible.",
-    )
-    if chosen != "—":
-        p = state.placements[chosen]
-        v = vehicles[chosen]
-        w, l = p.dimension(v)
-        orient = getattr(p.orientation, "value", str(p.orientation))
-        st.caption(
-            f"**{chosen}** · Position ({p.x}, {p.y}) · {orient} · "
-            f"Footprint {w} × {l} · Weight {v.weight:g} · "
-            f"Shipping Fee {v.shipping_fee:,.0f} · ETA {v.eta}"
-        )
+    fig = plot_ship(state=state, vehicles=vehicles, ship=ship, title=title)
+    st.pyplot(fig, use_container_width=True)
+    plt.close(fig)
 
 
 def running_best(history):
