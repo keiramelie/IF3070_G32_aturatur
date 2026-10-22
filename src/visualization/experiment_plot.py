@@ -1,4 +1,3 @@
-
 """Visualize results from Hill Climbing and Simulated Annealing."""
 
 import csv

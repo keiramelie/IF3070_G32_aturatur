@@ -9,7 +9,7 @@ from src.core.models import Vehicle, Ship, Placement, Orientation, State
 from src.core.constraints import is_valid_state
 import matplotlib.pyplot as plt
 from matplotlib import colormaps
-from matplotlib.patches import Rectangle
+from matplotlib.patches import Rectangle, FancyBboxPatch
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
@@ -21,6 +21,41 @@ from src.core.models import Orientation, Placement
 
 OUTPUT_DIR = PROJECT_ROOT / "output"
 
+BLUE_PALETTE = (
+    "#D4EAF7", "#C6DFF0", "#A9CBE9", "#BBD9F3", "#D1E4F8",
+    "#9FC4E5", "#E1F1FC", "#CAE4FA", "#D6EAF9",
+)
+
+def vehicle_blue(vehicle_id, vehicles):
+    """Keep each vehicle's color consistent across initial/final states."""
+    return BLUE_PALETTE[sorted(vehicles).index(vehicle_id) % len(BLUE_PALETTE)]
+
+def draw_rounded_vehicle(ax, x, y, width, length, vehicle_id, vehicles):
+    """Draw a rounded inset while preserving the exact grid footprint."""
+    inset = min(0.10, width / 6, length / 6)
+    rounded = FancyBboxPatch(
+        (x + inset, y + inset),
+        width - 2 * inset,
+        length - 2 * inset,
+        boxstyle="round,pad=0,rounding_size=0.16",
+        linewidth=1.05,
+        edgecolor="#1E3A5F",
+        facecolor=vehicle_blue(vehicle_id, vehicles),
+        zorder=2,
+    )
+    ax.add_patch(rounded)
+    ax.text(
+        x + width / 2,
+        y + length / 2,
+        vehicle_id,
+        ha="center",
+        va="center",
+        fontsize=7 if min(width, length) <= 2 else 8,
+        color="#0B2545",
+        fontweight="semibold",
+        zorder=3,
+        clip_on=True,
+    )
 
 def unloaded_vehicle_report(state_data, vehicles):
     """Text report of vehicles NOT loaded onto the ship (reusable in the UI)."""
@@ -42,15 +77,6 @@ def unloaded_vehicle_report(state_data, vehicles):
 
 
 def draw_state(ax, state_data, ship, vehicles, title):
-    """Draw one ship-loading state.
-
-    Dimensions come from ``Placement.dimension`` (the SAME rule the
-    constraint checker uses: horizontal = (long, short), vertical =
-    (short, long)). Drawing with the raw vehicle.width/length would show
-    boxes that do not match the validated layout.
-    The y axis points DOWN so (0, 0) is the top-left cell, as in
-    ``build_grid`` (grid[y][x]).
-    """
     ax.set_xlim(0, ship.width)
     ax.set_ylim(ship.length, 0)
     ax.set_xticks(range(ship.width + 1))
@@ -67,7 +93,6 @@ def draw_state(ax, state_data, ship, vehicles, title):
     )
 
     placements = state_data.get("placements", {})
-    palette = colormaps["tab20"]
     occupied = {}
     overlaps = set()
     loaded_ids, total_weight = [], 0
@@ -111,26 +136,7 @@ def draw_state(ax, state_data, ship, vehicles, title):
                     overlaps.add((occupied[(cx, cy)], vehicle_id))
                 occupied[(cx, cy)] = vehicle_id
 
-        ax.add_patch(
-            Rectangle(
-                (x, y),
-                width,
-                length,
-                facecolor=palette(index % 20),
-                alpha=0.8,
-                edgecolor="black",
-                linewidth=1.2,
-            )
-        )
-        ax.text(
-            x + width / 2,
-            y + length / 2,
-            vehicle_id,
-            ha="center",
-            va="center",
-            fontsize=8 if min(width, length) > 1 else 6,
-            rotation=90 if length > width and width == 1 else 0,
-        )
+        draw_rounded_vehicle(ax, x, y, width, length, vehicle_id, vehicles)
 
     unloaded = sorted(v for v in vehicles if placements.get(v) is None)
     return {
@@ -275,31 +281,8 @@ def plot_ship(state: State, vehicles: dict[str, Vehicle], ship: Ship, title: str
         vehicle = vehicles[vehicle_id]
         width, length = placement.dimension(vehicle)
 
-        rectangle = Rectangle(
-            (placement.x, placement.y),
-            width,
-            length,
-            facecolor=palette(index % 20),
-            edgecolor="#263238",
-            linewidth=1,
-            alpha=0.8,
-            zorder=2,
-        )
-
-        ax.add_patch(rectangle)
-
-        font_size = 7 if min(width, length) <= 2 else 9
-
-        ax.text(
-            placement.x + width / 2,
-            placement.y + length / 2,
-            vehicle_id,
-            ha="center",
-            va="center",
-            fontsize=font_size,
-            color="#17212b",
-            zorder=3,
-            clip_on=True,
+        draw_rounded_vehicle(
+            ax, placement.x, placement.y, width, length, vehicle_id, vehicles
         )
 
     fig.tight_layout()

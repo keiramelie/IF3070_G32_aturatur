@@ -1,9 +1,3 @@
-"""Flexible dataset loader for AturAtur.
-
-Supports CSV files and, when pandas + an Excel engine are installed, XLSX/XLS.
-The loader discovers ship and vehicle tables by their columns, not only filenames.
-"""
-
 from __future__ import annotations
 
 import csv
@@ -176,15 +170,6 @@ def _integer(raw: Any, label: str, row_number: int) -> int:
 
 
 def load_problem(dataset_dir: Path | str) -> tuple[Ship, dict[str, Vehicle]]:
-    """Discover ship/vehicle tables and map their columns into project models.
-
-    Expected content (filenames may differ):
-      - one ship row with width, length, and max capacity columns
-      - vehicle rows with ID, width, length, shipping fee, and weight columns
-
-    Column aliases are case-insensitive and tolerate spaces, underscores,
-    punctuation, and common Indonesian/English names.
-    """
     dataset_dir = Path(dataset_dir).expanduser().resolve()
     tables = _read_tables(dataset_dir)
 

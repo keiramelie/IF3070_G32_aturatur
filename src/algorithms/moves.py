@@ -13,12 +13,6 @@ def propose_random_neighbor(
     rng: Random,
     max_attempts: int = 200,
 ) -> State | None:
-    """Sample one random feasible neighbor without enumerating the space.
-
-    Move families (spec): swap two vehicles, move one vehicle to another
-    coordinate (including load / unload), rotate one vehicle.
-    Returns None if ``max_attempts`` random tries are all infeasible.
-    """
     ids = list(vehicles)
     for _ in range(max_attempts):
         kind = rng.random()
