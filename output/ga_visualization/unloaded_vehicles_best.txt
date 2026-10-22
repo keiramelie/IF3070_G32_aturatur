@@ -1,0 +1,19 @@
+=== Trial 1 | Genetic Algorithm | vary_generations_100_trial_1 (best state) ===
+Kendaraan tidak dimuat: 4 dari 30 (total fee tidak terangkut: 331)
+  V001: ukuran 2x4, fee 70, berat 10, ETA 8
+  V005: ukuran 3x4, fee 108, berat 14, ETA 4
+  V019: ukuran 3x4, fee 102, berat 14, ETA 7
+  V025: ukuran 3x4, fee 51, berat 7, ETA 10
+
+=== Trial 2 | Genetic Algorithm | vary_generations_100_trial_2 (best state) ===
+Kendaraan tidak dimuat: 3 dari 30 (total fee tidak terangkut: 287)
+  V019: ukuran 3x4, fee 102, berat 14, ETA 7
+  V024: ukuran 3x4, fee 134, berat 10, ETA 1
+  V025: ukuran 3x4, fee 51, berat 7, ETA 10
+
+=== Trial 3 | Genetic Algorithm | vary_generations_100_trial_3 (best state) ===
+Kendaraan tidak dimuat: 4 dari 30 (total fee tidak terangkut: 331)
+  V001: ukuran 2x4, fee 70, berat 10, ETA 8
+  V005: ukuran 3x4, fee 108, berat 14, ETA 4
+  V019: ukuran 3x4, fee 102, berat 14, ETA 7
+  V025: ukuran 3x4, fee 51, berat 7, ETA 10

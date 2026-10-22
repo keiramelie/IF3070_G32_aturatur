@@ -117,10 +117,33 @@ Untuk membuat grafik analisis dari output GA:
 python -m experiments.plot_results \
   --ga-dir output/ga/readme_validation \
   --local-dir output \
+  --dataset-dir data/synthetic_10x20 \
   --output-dir output/analysis/readme_validation
 ```
 
 > `--local-dir output` membutuhkan hasil eksperimen HC/SA yang sesuai sudah tersedia. Hasil eksperimen yang disertakan bersama repository dapat berada di subfolder output lain.
+
+Opsi `--dataset-dir` menambahkan **18 gambar initial state vs final state GA**, dengan layout dan panel informasi yang sama seperti HC/SA: skor, berat, jumlah kendaraan dimuat, daftar kendaraan di luar kapal, dan fee tidak terangkut. Nama gambar memuat `run_id` agar setiap studi, konfigurasi, dan trial memiliki file sendiri. Tanpa opsi ini, perintah tetap hanya membuat grafik analisis seperti sebelumnya.
+
+### Visualisasi layout kapal HC, SA, dan GA
+
+Untuk langsung membuat layout dari **hasil GA yang sudah disertakan dalam repository**, tanpa menjalankan ulang eksperimen:
+
+```bash
+python -m src.visualization.ship_plot --ga-runs output/ga/synthetic_10x20_pilot/ga_runs.json --dataset-dir data/synthetic_10x20 --output-dir output/ga/synthetic_10x20_pilot/ship_states
+```
+
+Gambar `ship_states_<run_id>.png` dan laporan `unloaded_vehicles.txt` disimpan di folder output tersebut. Tambahkan `--study vary_generations --population-size 40 --generations 100 --trial 1` untuk memilih satu run; tanpa filter, seluruh 18 run digambar.
+
+Secara default, panel kanan menampilkan **final state**, yaitu individu terbaik pada generasi terakhir. Tambahkan `--result-state best` untuk menampilkan **best state sepanjang seluruh generasi** dengan skor yang sesuai. GA tidak memakai elitism, sehingga final score dapat lebih rendah daripada best score. Gambar dan laporan best state memakai akhiran `_best`, sehingga dapat disimpan bersama versi final state.
+
+Perintah HC/SA sebelumnya tetap dapat dipakai:
+
+```bash
+python -m src.visualization.ship_plot
+```
+
+Gunakan `--states path/ke/states.json --output-dir path/ke/gambar` jika hasil HC/SA berada di folder lain. Dataset CSV untuk visualisasi harus sama dengan dataset eksperimen; hasil GA diperiksa memakai fingerprint dataset.
 
 ## Testing
 

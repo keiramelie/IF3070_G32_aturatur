@@ -289,6 +289,7 @@ def run_analysis (
     generations: int,
     local_dir: Path | None = None,
     include_bonus: bool = False,
+    dataset_dir: Path | None = None,
 ) -> list[Path]:
     ga_dir = ga_dir.resolve()
     output_dir = output_dir.resolve()
@@ -342,6 +343,15 @@ def run_analysis (
             path = output_dir / name
             plot_algorithm_comparison(comparison, metric, path, include_bonus)
             generated.append(path)
+    if dataset_dir is not None:
+        from src.visualization.ship_plot import plot_ship_states
+
+        generated.extend(plot_ship_states(
+            dataset_dir,
+            states_path=ga_paths["ga_runs.json"],
+            output_dir=output_dir,
+        ))
+        generated.append(output_dir / "unloaded_vehicles.txt")
     inputs = {name: file_hash(path) for name, path in {**ga_paths, **{f"local_{name}": path for name, path in local_paths.items()}}.items()}
     manifest = {
         "dataset_id": ga_manifest["dataset_id"],
@@ -350,6 +360,7 @@ def run_analysis (
         "comparison_generations": generations,
         "seeds": ga_manifest["seeds"],
         "include_bonus": include_bonus,
+        "ship_state_comparisons": dataset_dir is not None,
         "input_sha256": inputs,
         "generated_files": [path.name for path in generated],
     }
@@ -369,6 +380,10 @@ def main () -> None:
     parser.add_argument("--population-size", type=int, default=40)
     parser.add_argument("--generations", type=int, default=100)
     parser.add_argument("--include-bonus", action="store_true")
+    parser.add_argument(
+        "--dataset-dir", type=Path,
+        help="Tambahkan layout initial/final untuk seluruh run GA memakai dataset CSV ini.",
+    )
     args = parser.parse_args()
     generated = run_analysis(
         args.ga_dir,
@@ -377,6 +392,7 @@ def main () -> None:
         generations=args.generations,
         local_dir=args.local_dir,
         include_bonus=args.include_bonus,
+        dataset_dir=args.dataset_dir,
     )
     for path in generated:
         print(path)
